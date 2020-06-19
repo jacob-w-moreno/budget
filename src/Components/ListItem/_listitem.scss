@@ -1,0 +1,28 @@
+.list-item{
+  padding: 14px 0px;
+  border-bottom: 3px solid white;
+  @include row(space-between);
+  align-items: center;
+}
+
+#no-border{
+  border: none;
+}
+
+.list-number-left{
+  width: 80px;
+  overflow: scroll;
+}
+
+.list-number-right{
+  width: 80px;
+  text-align: right;
+  overflow: scroll;
+}
+
+.mini-budget-list{
+  margin: 0px 20px;
+  padding: 15px 0px;
+  
+  @include row(space-between);
+}

@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+.App {
+  background: gray;
+  min-height: 100vh;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#list {
+  max-height: calc(100vh - 300px);
+  overflow: scroll;
+  border-bottom: 3px solid lightgray;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0px 20px;
+}
+
+button {
+  margin: 0px 20px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: calc(100vw - 40px);
+  background: orange;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#dashboard {
+  margin: 20px auto;
+  height: 120px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard-totals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard-line {
+  margin: 8px 0px;
+  border: 1.5px solid white;
+  height: 0px;
+  width: 90px;
+}
+
+#circle {
+  margin: 0px 20px;
+  border: 4px solid white;
+  border-radius: 70px;
+  height: 120px;
+  width: 120px;
+  background: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#budget {
+  width: 100%;
+  max-width: 500px;
+}
+
+#budget-white-bar {
+  padding: 2px 20px;
+  background: white;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 12px;
+}
+
+.white {
+  color: white;
+}
+
+#edit-budget {
+  position: fixed;
+  bottom: 20px;
+}
+
+#header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0px 20px;
+  background: orange;
+  height: 40px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 23px;
+}
+
+.header-icon {
+  height: 20px;
+  width: 20px;
+  border: 1px solid white;
+}
+
+.list-item {
+  padding: 14px 0px;
+  border-bottom: 3px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#no-border {
+  border: none;
+}
+
+.list-number-left {
+  width: 80px;
+  overflow: scroll;
+}
+
+.list-number-right {
+  width: 80px;
+  text-align: right;
+  overflow: scroll;
+}
+
+.mini-budget-list {
+  margin: 0px 20px;
+  padding: 15px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=style.css.map */

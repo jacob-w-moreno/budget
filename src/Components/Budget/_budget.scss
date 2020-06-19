@@ -1,0 +1,22 @@
+#budget{
+  width: 100%;
+  max-width: 500px;
+}
+
+#budget-white-bar{
+  padding: 2px 20px;
+
+  background: white;
+  color: black;
+  @include row(space-between);
+  font-size: 12px;
+}
+
+.white{
+  color: white;
+}
+
+#edit-budget{
+  position: fixed;
+  bottom: 20px;
+}

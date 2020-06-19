@@ -1,0 +1,17 @@
+#header{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0px 20px;
+
+  background: orange;
+  @include dim(40px, 100vw);
+
+  @include row(space-between);
+  align-items: center;
+  font-size: 23px;
+}
+
+.header-icon{
+  @include dim(20px, 20px);
+  border: 1px solid white;
+}
