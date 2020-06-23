@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+$orange: #fe8626;
+$darkorange: #ff7300;
+
+$darkgray: #4d4d4d;
+$lightgray: #8a8a8a;
+
+$green: #93ff80;
+$red: #ff9880;
+
 @mixin row($justify-content){
   display: flex;
   flex-direction: row;
@@ -22,7 +31,7 @@
 }
 
 .App{
-  background: gray;
+  background: $darkgray;
   min-height: 100vh;
   color: white;
   @include column();
@@ -35,36 +44,24 @@
   box-sizing: border-box;
 }
 
-#list{
-  max-height: calc(100vh - 350px);
-  overflow: scroll;
-  padding: 0px 20px;
-}
-
 button{
   border: none;
   border-radius: 5px;
   outline: none;
 
   @include dim(40px, 100%);
-  background: orange;
+  background: $orange;
   color: white;
+  font-size: 16px;
   font-weight: bold;
   &:hover {
     cursor: pointer;
   }
+  &:active {
+    transform: scale(0.9);
+    background: $darkorange;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #obligatory-div{
   @include dim(calc(100vh - 200px), 100%);
@@ -79,10 +76,27 @@ button{
     #top-stuff{
       // @include border(green);
       width: 100%;
-      border-bottom: 3px solid #999;
+      border-bottom: 3px solid $lightgray;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
     }
+    .white-bar{
+      padding: 2px 20px;
+    
+      background: white;
+      color: black;
+      @include row(space-between);
+      font-size: 12px;
+      span{
+        width: 33%;
+      }
+    }
+      #middle{
+        text-align: center;
+      }
+      #right{
+        text-align: right;
+      }
     .button-container{
       // @include border(green);
       margin-bottom: 20px;
@@ -108,3 +122,4 @@ button{
 @import '../Components/Header/header.scss';
 @import '../Components/ListItem/listitem.scss';
 @import '../Components/Transaction/transaction.scss';
+@import '../Components//History/history.scss';

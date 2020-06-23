@@ -23,7 +23,7 @@
   border-radius: 70px;
   
   @include dim(120px, 120px);
-  background: orange;
+  background: $orange;
 
   @include row(center);
   align-items: center;
