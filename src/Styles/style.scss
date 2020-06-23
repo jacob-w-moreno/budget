@@ -17,6 +17,10 @@
   width: $width;
 }
 
+@mixin border($color){
+  border: 2px solid $color;
+}
+
 .App{
   background: gray;
   min-height: 100vh;
@@ -32,29 +36,72 @@
 }
 
 #list{
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 350px);
   overflow: scroll;
-  border-bottom: 3px solid #999;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   padding: 0px 20px;
 }
 
 button{
-  margin: 0px 20px;
   border: none;
   border-radius: 5px;
   outline: none;
 
-  @include dim(40px, calc(100vw - 40px));
+  @include dim(40px, 100%);
   background: orange;
   color: white;
   font-weight: bold;
-
   &:hover {
     cursor: pointer;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#obligatory-div{
+  @include dim(calc(100vh - 200px), 100%);
+  max-width: 500px;
+  // @include border(red);
+}
+  #everything-but-the-header{
+    @include dim(100%, 100%);
+    @include column;
+    justify-content: space-between;
+  }
+    #top-stuff{
+      // @include border(green);
+      width: 100%;
+      border-bottom: 3px solid #999;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .button-container{
+      // @include border(green);
+      margin-bottom: 20px;
+      width: 100%;
+      padding: 0px 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @import '../Components/Dashboard/dashboard.scss';
 @import '../Components/Budget/budget.scss';

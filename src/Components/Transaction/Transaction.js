@@ -7,9 +7,9 @@ const Transaction = (props) => {
 
   let category = null;
   if (!income) {
-    category = (<div className='transaction-info'>
+    category = (<div className='trans-info'>
     <span>CATEGORY</span>
-    <div id='transaction-category'>
+    <div id='trans-category'>
       CHEESE
       <div>$89.74</div>
       </div>
@@ -17,45 +17,45 @@ const Transaction = (props) => {
   }
 
   return (
-    <div id='transaction'>
-
+    <div id='obligatory-div'>
       <Header
         title='TRANSACTION'/>
 
-      <div id='trans-buttons-container'>
+      <div id='everything-but-the-header'>
+        <div id='top-stuff'>
+          <div id='trans-buttons-container'>
+            <button id={income ? null : 'trans-button-not'} onClick={()=>setIncome(true)}>INCOME</button>
+            <div id='button-spacer'/>
+            <button id={income ? 'trans-button-not' : null} onClick={()=>setIncome(false)}>EXPENSE</button>
+          </div>
 
-        <button className='trans-buttons' id={income ? null : 'trans-button-not'} onClick={()=>setIncome(true)}>INCOME</button>
+          <div id='trans-info-container'>
+            <div className='trans-info'>
+              <span>AMOUNT</span>
+              $<input className='transaction-input' placeholder='00.00' type='number'/>
+            </div>
 
-        <div id='button-spacer'/>
+            <div className='trans-info'>
+              <span>DESCRIPTION</span>
+              <input className='trans-input' placeholder='Add a description' type='text'/>
+            </div>
 
-        <button className='trans-buttons' id={income ? 'trans-button-not' : null} onClick={()=>setIncome(false)}>EXPENSE</button>
+            <div className='trans-info'>
+              <span>DATE</span>
+              <div>JUN. 28, 2020</div>
+            </div>
 
+            {category}
+
+          </div>
+          <div className='button-container'>
+            <button>ADD TRANSACTION</button>
+          </div>
+        </div>
+        <div className='button-container'>
+          <button>CANCEL</button>
+        </div>
       </div>
-
-      <div id='transaction-info-container'>
-
-        <div className='transaction-info'>
-          <span>AMOUNT</span>
-          $<input className='transaction-input' placeholder='00.00' type='number'/>
-        </div>
-
-        <div className='transaction-info'>
-          <span>DESCRIPTION</span>
-          <input className='transaction-input' placeholder='Add a description' type='text'/>
-        </div>
-
-        <div className='transaction-info'>
-          <span>DATE</span>
-          <div>JUN. 28, 2020</div>
-        </div>
-
-        {category}
-
-      </div>
-
-      <button>ADD TRANSACTION</button>
-
-      <button>CANCEL</button>
 
     </div>
   )

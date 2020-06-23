@@ -1,52 +1,44 @@
-#transaction{
-  width: 100%;
-  max-width: 500px;
-}
 #trans-buttons-container{
   margin: 20px;
   @include row(space-between);
 }
-.trans-buttons{
-  margin: 0px;
-  border-radius: 0px;
-}
-#trans-button-not{
-  background: none;
-  border: 3px solid #999;
-}
-#button-spacer{
-  width: 40px;
-}
-#transaction-info-container{
-  margin: 0px 20px;
-  margin-bottom: 20px;
+  #trans-button-not{
+    background: none;
+    border: 3px solid #999;
+  }
+  #button-spacer{
+    width: 40px;
+  }
+
+#trans-info-container{
+  margin: 0px 20px 20px 20px;
   border-bottom: 2px solid #999;
 }
-.transaction-info{
-  @include row(flex-start);
-  padding: 8px 0px;
-  border-top: 2px solid #999;
-  span {
-    margin-right: 10px;
-    border-right: 2px solid #999;
-    width: 110px;
-    color: orange;
-  }
-  ::placeholder {
-    color: #999;
+  .trans-info{
+    @include row(flex-start);
+    padding: 8px 0px;
+    border-top: 2px solid #999;
+    span {
+      margin-right: 10px;
+      border-right: 2px solid #999;
+      width: 110px;
+      color: orange;
+    }
+    ::placeholder {
+      color: #999;
 
+    }
+    input{
+      margin-left: 5px;
+      border: none;
+      width: 64%;
+      outline: none;
+      background: none;
+      color: white;
+      font-size: 14px;
+    }
   }
-  input{
-    margin-left: 5px;
-    border: none;
-    width: 64%;
-    outline: none;
-    background: none;
-    color: white;
-    font-size: 14px;
-  }
-}
-#transaction-category{
+#trans-category{
   width: 68%;
   @include row(space-between);
 }
