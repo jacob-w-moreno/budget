@@ -4,7 +4,7 @@
   padding: 0px 20px;
 
   background: orange;
-  @include dim(40px, 100vw);
+  @include dim(40px, 100%);
 
   @include row(space-between);
   align-items: center;

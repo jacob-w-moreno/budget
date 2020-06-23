@@ -1,6 +1,6 @@
 .list-item{
   padding: 14px 0px;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #999999;
   @include row(space-between);
   align-items: center;
 }
