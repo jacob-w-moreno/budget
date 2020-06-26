@@ -2,9 +2,19 @@ import React, {useState} from 'react';
 import Header from '../Header/Header';
 import ListItem from './BudgetList';
 
+import {connect} from 'react-redux';
+
 const Budget = (props) => {
 
+  console.log(props);
+
+  const [categories, setCategories] = useState([...props.categories]);
   const [showPennies, togglePennies] = useState(false);
+
+  console.log(props.categories);
+  let newCategories = [...categories]
+  newCategories[0]["name"]='cheese';
+  console.log(props.categories);
 
   return(<div id='obligatory-div'>
 
@@ -21,6 +31,17 @@ const Budget = (props) => {
         </div>
 
         <div className='list'>
+          {categories.map(category => {
+            return (
+              <ListItem
+                name={category.name}
+                type={category.type}
+                allocated={category.allocated}
+                balance={category.balance}
+                key={category.id}
+                />
+            )
+          })}
           <ListItem
             pennies={showPennies}
             penniesFN={togglePennies}
@@ -75,4 +96,6 @@ const Budget = (props) => {
   </div>)
 }
 
-export default Budget;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(Budget);

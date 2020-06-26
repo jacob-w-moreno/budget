@@ -82,7 +82,7 @@ button{
     }
     .white-bar{
       padding: 2px 20px;
-    
+
       background: white;
       color: black;
       @include row(space-between);
@@ -105,7 +105,10 @@ button{
     }
 
 
-
+a{
+  color: white;
+  text-decoration: none;
+}
 
 
 
