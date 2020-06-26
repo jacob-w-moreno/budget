@@ -8,11 +8,14 @@ const Budget = (props) => {
 
   console.log(props);
 
+// Even though I use the spread operator to copy props.categories here...
   const [categories, setCategories] = useState([...props.categories]);
   const [showPennies, togglePennies] = useState(false);
 
   console.log(props.categories);
+// ...then use the spread operator AGAIN to copy the categories here...
   let newCategories = [...categories]
+// ...this line still directly modifies the original object in the reducer.
   newCategories[0]["name"]='cheese';
   console.log(props.categories);
 
