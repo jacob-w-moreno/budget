@@ -1,13 +1,5 @@
 const initialState = {
-  categories: [
-    {
-      name: 'ReduxTest1',
-      type: '%!',
-      allocated: 10,
-      balance: 20,
-      id: 0
-    }
-  ],
+  categories: [],
   history: ['TEST: history'],
   total: 'TEST: total'
 }

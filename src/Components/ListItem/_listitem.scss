@@ -21,7 +21,7 @@
   .dp-list-item{
     @include list-item;
   }
-  
+
   .history-inc-list-item{
     @include list-item;
     color: $green;
@@ -31,7 +31,7 @@
     color: $red;
   }
 
-    
+
 .list-display{
   width: 33%;
   overflow: scroll;
@@ -41,4 +41,7 @@
 }
 #no-border{
   border: none;
+}
+#no-categories{
+  color: black;
 }
