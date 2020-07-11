@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Dashboard/>
-      {/* {routes} */}
+      {routes}
     </div>
   );
 }

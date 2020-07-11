@@ -7,21 +7,21 @@ const Budget = (props) => {
   const [showPennies, togglePennies] = useState(false);
 
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
-  if (props.categories.length > 0) {
-    list = props.categories.map(category => {
-      return (
-        <ListItem
-          pennies={showPennies}
-          penniesFN={togglePennies}
-          name={category.name}
-          type={category.type}
-          allocated={category.allocated}
-          balance={category.balance}
-          key={category.id}
-          />
-      )
-    });
-  }
+  // if (props.categories.length > 0) {
+  //   list = props.categories.map(category => {
+  //     return (
+  //       <ListItem
+  //         pennies={showPennies}
+  //         penniesFN={togglePennies}
+  //         name={category.name}
+  //         type={category.type}
+  //         allocated={category.allocated}
+  //         balance={category.balance}
+  //         key={category.id}
+  //         />
+  //     )
+  //   });
+  // }
 
   return(<div id='obligatory-div'>
 
