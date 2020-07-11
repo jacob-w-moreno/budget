@@ -16,10 +16,11 @@ function App() {
   },[])
 
   const getCategories = () => {
-    axios.get('/api/categories')
+    axios.get('/cat')
       .then((res) => {
         setCategories(res.data);
       })
+      .catch(console.log('failed'))
   }
 
   return (
