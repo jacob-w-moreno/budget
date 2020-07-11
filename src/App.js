@@ -24,16 +24,7 @@ function App() {
 
   return (
     <div className="App">
-
       <Dashboard/>
-      {routes}
-      {/* <Router>
-        <Route
-          exact path = '/'
-          render={(routeProps) => (
-            <Budget {...routeProps} categories = {categories}/>
-          )}/>
-      </Router> */}
       {/* {routes} */}
     </div>
   );

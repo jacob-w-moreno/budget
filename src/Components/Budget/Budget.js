@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../Header/Header';
 import ListItem from './BudgetList';
-import axios from 'axios';
 
 const Budget = (props) => {
 
