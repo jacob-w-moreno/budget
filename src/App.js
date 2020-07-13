@@ -16,10 +16,8 @@ function App() {
   },[])
 
   const getCategories = () => {
-    axios.get('/cat')
-      .then((res) => {
-        setCategories(res.data);
-      })
+    axios.get('/ping')
+      .then(res => {console.log(res.data)})
       .catch(console.log('failed'))
   }
 
