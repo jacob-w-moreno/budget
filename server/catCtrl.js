@@ -2,12 +2,11 @@ let categories = [
   {
     name: 'test',
     type: '$',
-    allocated: '400',
-    balance: '300',
+    allocated: 400,
+    balance: 300,
     id: 0
   }
 ]
-
 
 module.exports = {
   getCategories: (req, res) => {

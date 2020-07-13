@@ -1,27 +1,42 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../Header/Header';
 import ListItem from './BudgetList';
+import axios from 'axios';
 
 const Budget = (props) => {
 
-  const [showPennies, togglePennies] = useState(false);
 
+  const [showPennies, togglePennies] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(()=>{
+    getCategories();
+  },[])
+
+  const getCategories = () => {
+    axios.get('/categories')
+    .then(res => setCategories(res.data))
+    .catch(console.log('FAIL'))
+  }
+
+  console.log('categories:', categories);
+  
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
-  // if (props.categories.length > 0) {
-  //   list = props.categories.map(category => {
-  //     return (
-  //       <ListItem
-  //         pennies={showPennies}
-  //         penniesFN={togglePennies}
-  //         name={category.name}
-  //         type={category.type}
-  //         allocated={category.allocated}
-  //         balance={category.balance}
-  //         key={category.id}
-  //         />
-  //     )
-  //   });
-  // }
+  if (categories.length > 0) {
+    list = categories.map(category => {
+      return (
+        <ListItem
+          pennies={showPennies}
+          penniesFN={togglePennies}
+          name={category.name}
+          type={category.type}
+          allocated={category.allocated}
+          balance={category.balance}
+          key={category.id}
+          />
+      )
+    });
+  }
 
   return(<div id='obligatory-div'>
 

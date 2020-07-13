@@ -5,21 +5,20 @@ import routes from './routes';
 import axios from 'axios';
 import './Styles/style.scss';
 
-// import {HashRouter as Router, Route} from 'react-router-dom';
 
 function App() {
 
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
 
-  useEffect(()=>{
-    getCategories()
-  },[])
+  // useEffect(()=>{
+  //   getCategories()
+  // },[])
 
-  const getCategories = () => {
-    axios.get('/ping')
-      .then(res => {console.log(res.data)})
-      .catch(console.log('failed'))
-  }
+  // const getCategories = () => {
+  //   axios.get('/categories')
+  //     .then(res => setCategories(res.data))
+  //     .catch(console.log('failed'))
+  // }
 
   return (
     <div className="App">
