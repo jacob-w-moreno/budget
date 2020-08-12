@@ -1,25 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Budget from './Components/Budget/Budget';
 import routes from './routes';
-import axios from 'axios';
 import './Styles/style.scss';
 
 
 function App() {
-
-  // const [categories, setCategories] = useState([]);
-
-  // useEffect(()=>{
-  //   getCategories()
-  // },[])
-
-  // const getCategories = () => {
-  //   axios.get('/categories')
-  //     .then(res => setCategories(res.data))
-  //     .catch(console.log('failed'))
-  // }
-
   return (
     <div className="App">
       <Dashboard/>
