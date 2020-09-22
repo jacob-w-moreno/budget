@@ -21,6 +21,9 @@
   .dp-list-item{
     @include list-item;
   }
+  .dp-list-item:last-of-type{
+    border: none;
+  }
 
   .history-inc-list-item{
     @include list-item;

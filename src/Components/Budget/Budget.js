@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Header from '../Header/Header';
 import ListItem from './BudgetList';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const Budget = (props) => {
-
 
   const [showPennies, togglePennies] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -20,7 +20,7 @@ const Budget = (props) => {
   }
 
   console.log('categories:', categories);
-  
+
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
   if (categories.length > 0) {
     list = categories.map(category => {
@@ -56,7 +56,9 @@ const Budget = (props) => {
       </div>
 
       <div className='button-container'>
+      <Link to='/edit-budget'>
         <button>EDIT</button>
+      </Link>
       </div>
     </div>
 

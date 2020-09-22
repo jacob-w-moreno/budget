@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import {ThemeContext} from './Components/ContextTest/ThemeContext';
 
 import {HashRouter} from 'react-router-dom';
 
 ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
+  // <ThemeContext.Provider>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  // </ThemeContext.Provider>
   ,
   document.getElementById('root')
 );

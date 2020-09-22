@@ -111,6 +111,11 @@ button:active {
   padding: 0px 20px;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 #dashboard {
   margin: 20px auto;
   height: 120px;
@@ -262,6 +267,10 @@ button:active {
           align-items: center;
 }
 
+.dp-list-item:last-of-type {
+  border: none;
+}
+
 .history-inc-list-item {
   padding: 14px 0px;
   border-bottom: 3px solid #8a8a8a;
@@ -311,6 +320,10 @@ button:active {
 
 #no-border {
   border: none;
+}
+
+#no-categories {
+  color: black;
 }
 
 #trans-buttons-container {
