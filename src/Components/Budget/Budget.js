@@ -9,9 +9,7 @@ import ListItem from './BudgetList';
 const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
-  const [categories, setCategories] = useState([
-
-  ]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     setCategories(props.categories)}, [props.categories])
