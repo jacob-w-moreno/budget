@@ -1,14 +1,26 @@
 const initialState = {
-  categories: [],
+  categories: [
+    {
+      name: 'test',
+      type: '$',
+      allocated: 400,
+      balance: 300.35,
+      id: 0
+    },
+    {
+      name: 'test 2',
+      type: '%',
+      allocated: 100,
+      balance: 200.92, id: 1
+    }
+  ],
   history: ['TEST: history'],
   total: 'TEST: total'
 }
 
-// const GET_USER = 'GET_USER';
 const GET_CATEGORIES = 'GET_CATEGORIES';
 const GET_HISTORY = 'GET_HISTORY';
 const GET_TOTAL = 'GET_TOTAL';
-// const LOGOUT = 'LOGOUT';
 
 export function getCategories(categoriesObject) {
   return{

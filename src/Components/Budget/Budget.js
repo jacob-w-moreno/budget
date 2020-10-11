@@ -7,19 +7,21 @@ import {Link} from 'react-router-dom';
 const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(()=>{
-    getCategories();
-  },[])
-
-  const getCategories = () => {
-    axios.get('/categories')
-    .then(res => setCategories(res.data))
-    .catch(console.log('FAIL'))
-  }
-
-  console.log('categories:', categories);
+  const [categories, setCategories] = useState([
+    {
+      name: 'test',
+      type: '$',
+      allocated: 400,
+      balance: 300.35,
+      id: 0
+    },
+    {
+      name: 'test 2',
+      type: '%',
+      allocated: 100,
+      balance: 200.92, id: 1
+    }
+  ]);
 
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
   if (categories.length > 0) {
@@ -39,9 +41,7 @@ const Budget = (props) => {
   }
 
   return(<div id='obligatory-div'>
-
     <Header title="BUDGET"/>
-
     <div id='everything-but-the-header'>
       <div id='top-stuff'>
         <div className='white-bar'>
