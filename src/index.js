@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+
+import store from './redux/store';
+import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-// import {ThemeContext} from './Components/ContextTest/ThemeContext';
 
 import {HashRouter} from 'react-router-dom';
 
 ReactDOM.render(
-  // <ThemeContext.Provider>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  // </ThemeContext.Provider>
+  <Provider store={store}>
+  <HashRouter>
+    <App />
+  </HashRouter>
+  </Provider>
   ,
   document.getElementById('root')
 );

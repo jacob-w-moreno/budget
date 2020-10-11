@@ -1,7 +1,7 @@
 import React from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
 import routes from './routes';
-import Image from './Components/ContextTest/Image';
+import {connect} from 'react-redux';
 import './Styles/style.scss';
 
 
@@ -10,9 +10,10 @@ function App() {
     <div className="App">
       <Dashboard/>
       {routes}
-      {/* <Image/> */}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(App);
