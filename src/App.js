@@ -13,7 +13,6 @@ function App() {
   const getCategories = () => { axios
     .get('/api/categories')
     .then(response => {
-      console.log('response.data:', response.data)
       setCategories(response.data)
     })
     .catch(error => console.log(error));
@@ -31,6 +30,6 @@ function App() {
   );
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = reduxState => reduxState
 
 export default connect(mapStateToProps, {setCategories})(App);

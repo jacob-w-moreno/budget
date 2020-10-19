@@ -8,7 +8,6 @@ import ListItem from './BudgetList';
 const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
-  console.log('props:', props);
 
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
   if (props.categories && props.categories.length > 0) {
@@ -22,7 +21,7 @@ const Budget = (props) => {
           allocated={category.allocated}
           balance={category.balance}
           key={category.id}
-          />
+        />
       )
     });
   }

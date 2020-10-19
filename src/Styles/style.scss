@@ -48,6 +48,7 @@ button{
   border: none;
   border-radius: 5px;
   outline: none;
+  margin-top: 16px;
 
   @include dim(40px, 100%);
   background: $orange;

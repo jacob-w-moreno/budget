@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Dashboard from '../Dashboard';
+import {setCategories} from '../../redux/reducer';
+
 import DollarEdit from './DollarEdit';
 import Header from '../Header';
 
@@ -21,10 +23,21 @@ const BudgetEdit = (props) => {
     setCategories(newCategories);
   }
 
-  const editName = async(index, value) => {
-    const newCategories = [...categories];
-    newCategories[index]["name"] = value;
-    setCategories(newCategories);
+  const editName = async(id, value) => {
+    const categoryIndex = props.categories.findIndex(category => {
+      return category.id === id
+    })
+
+    const category = {
+      ...props.categories[categoryIndex]
+    };
+
+    category.name = value
+
+    const categories = [...props.categories];
+    categories[id] = category;
+
+    setCategories(categories);
   }
 
   const distributeDollar = () => {
@@ -57,7 +70,7 @@ const BudgetEdit = (props) => {
     <span id='right'>BALANCE</span>
   </div>
 
-  const dollars = categories.filter(el => el.type === "$").map(category => {
+  const dollars = categories.filter(element => element.type === "$").map(category => {
     return ( <DollarEdit
       name={category.name}
       editName={editName}
@@ -65,7 +78,7 @@ const BudgetEdit = (props) => {
       allocated={category.allocated}
       editAllocation={editAllocation}
       balance={category.balance}
-      index={category.id}
+      id={category.id}
       key={category.id}
     /> )
   })
@@ -73,7 +86,6 @@ const BudgetEdit = (props) => {
 // === === === JSX END === === ===
 
   return (<div id='obligatory-div'>
-      <Dashboard/>
     <Header title="EDIT"/>
     <div id='everything-but-the-header'>
       <div id='top-stuff'>
@@ -83,9 +95,16 @@ const BudgetEdit = (props) => {
           {/* {percentages} */}
         </div>
       </div>
+      <div className='button-container'>
+        <button>SAVE</button>
+      <Link to='/'>
+        <button>CANCEL</button>
+      </Link>
+      </div>
     </div>
   </div>)
 }
 
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps)(BudgetEdit);
+
+export default connect(mapStateToProps, {setCategories})(BudgetEdit);
