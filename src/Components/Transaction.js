@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Header from '../Header/Header';
+import Header from './Header';
 
 const Transaction = (props) => {
 

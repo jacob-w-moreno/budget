@@ -1,7 +1,7 @@
 import React from 'react';
 import Budget from './Components/Budget/Budget';
 import History from './Components/History/History';
-import Transaction from './Components/Transaction/Transaction';
+import Transaction from './Components/Transaction';
 import BudgetEdit from './Components/Budget/BudgetEdit';
 import {Switch, Route} from 'react-router-dom';
 

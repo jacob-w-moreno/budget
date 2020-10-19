@@ -1,24 +1,22 @@
-const distributeDollar = (dollarCopy, totalCopy) => {
-  // let remainder = totalCopy;
-  // dollarCopy.forEach(dollar => dollar.balance = 0);
-  for(let i=0; i<dollarCopy.length; i++){
-    if (dollarCopy[i].balance < dollarCopy[i].allocated) {
-      let difference = (dollarCopy[i].allocated - dollarCopy[i].balance)
-      if(difference < remainder) {
-        console.log('IF')
-        remainder -= difference;
-        dollarCopy[i].balance = dollarCopy[i].allocated;
-      }
-      else {
-        console.log('ELSE')
-        dollarCopy[i].balance += remainder;
-        remainder = 0;
-        setRemaining(0);
-        setDollar(dollarCopy);
-      }
-    }
-  }
-  setRemaining(remainder);
-  distributePercent(remainder);
-  setDollar(dollarCopy)
-return}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {HashRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from './redux/store';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+ReactDOM.render(
+    <Provider store = {store}>
+    <HashRouter>
+        <App />
+    </HashRouter>
+    </Provider>
+    , document.getElementById('root')
+    );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

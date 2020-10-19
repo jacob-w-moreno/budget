@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 
-import Header from '../Header/Header';
-import DollarEdit from './DollarEdit'
+import Dashboard from '../Dashboard';
+import DollarEdit from './DollarEdit';
+import Header from '../Header';
 
 const BudgetEdit = (props) => {
 
@@ -72,14 +73,16 @@ const BudgetEdit = (props) => {
 // === === === JSX END === === ===
 
   return (<div id='obligatory-div'>
+      <Dashboard/>
     <Header title="EDIT"/>
     <div id='everything-but-the-header'>
-    <div id='top-stuff'>
-      {whiteBar}
-      <div className='list'>
-        {dollars}
+      <div id='top-stuff'>
+        {whiteBar}
+        <div className='list'>
+          {dollars}
+          {/* {percentages} */}
+        </div>
       </div>
-    </div>
     </div>
   </div>)
 }

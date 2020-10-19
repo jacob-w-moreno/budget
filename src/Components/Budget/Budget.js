@@ -1,22 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getCategories} from '../../redux/reducer';
 
-import Header from '../Header/Header';
+import Header from '../Header';
 import ListItem from './BudgetList';
 
 const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    setCategories(props.categories)}, [props.categories])
+  console.log('props:', props);
 
   let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
-  if (categories.length > 0) {
-    list = categories.map(category => {
+  if (props.categories && props.categories.length > 0) {
+    list = props.categories.map(category => {
       return (
         <ListItem
           pennies={showPennies}
@@ -58,4 +54,4 @@ const Budget = (props) => {
 
 const mapStateToProps = reduxState => reduxState;
 
-export default connect(mapStateToProps, {getCategories})(Budget);
+export default connect(mapStateToProps)(Budget);

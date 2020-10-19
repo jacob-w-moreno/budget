@@ -10,7 +10,15 @@ let categories = [
     name: 'test 2',
     type: '%',
     allocated: 100,
-    balance: 250, id: 1
+    balance: 250,
+    id: 1
+  },
+  {
+    name: 'test 3',
+    type: '$',
+    allocated: 200,
+    balance: 200,
+    id: 2
   }
 ]
 

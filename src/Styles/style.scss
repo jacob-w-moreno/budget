@@ -110,19 +110,9 @@ a{
   text-decoration: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-@import '../Components/Dashboard/dashboard.scss';
-@import '../Components/Budget/budget.scss';
-@import '../Components/Header/header.scss';
-@import '../Components/Budget/listitem.scss';
-@import '../Components/Transaction/transaction.scss';
-@import '../Components//History/history.scss';
+@import './dashboard.scss';
+@import './budget.scss';
+@import './header.scss';
+@import './listitem.scss';
+@import './transaction.scss';
+@import './history.scss';
