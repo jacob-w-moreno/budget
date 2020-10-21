@@ -1,21 +1,16 @@
-const initialState = {
-  user: {}
-};
+const { connect } = require('react-redux')
 
-const LOGIN_USER = 'LOGIN_USER';
+class MainView extends Component {
+  onSearchPressed() {
+    this.props.dispatchAddToSaved();
+  }
+  render() {...}
+}
 
-export function loginUser(user){
+const mapDispatchToProps = (dispatch) => {
   return {
-      type: LOGIN_USER,
-      payload: user
-  };
-};
+    dispatchAddToSaved: () => dispatch(addToSaved())
+  }
+}
 
-export default function userReducer(state = initialState, action){
-  switch(action.type){
-      case LOGIN_USER:
-          return {...state, user: action.payload};
-      default:
-          return state;
-  };
-};
+module.exports = connect(null, mapDispatchToProps)(MainView)

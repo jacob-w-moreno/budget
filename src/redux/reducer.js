@@ -8,14 +8,13 @@ const initialState = {
   total: 0
 }
 
-const GET_CATEGORIES = 'GET_CATEGORIES';
+const SET_CATEGORIES = 'SET_CATEGORIES';
 const GET_HISTORY = 'GET_HISTORY';
 const GET_TOTAL = 'GET_TOTAL';
 
 export function setCategories(categoriesObject) {
-  console.log('running');
   return{
-    type: GET_CATEGORIES,
+    type: SET_CATEGORIES,
     payload: categoriesObject
   }
 }
@@ -34,13 +33,23 @@ export function getTotal(total) {
   }
 }
 
+export const addTodo = text => {
+  return {
+    type: SET_CATEGORIES,
+    payload: text
+  }
+}
+
 export default function reducer(state = initialState, action){
   const{type, payload} = action;
+  console.log('state:', state);
   console.log('action:', action);
+  console.log('type:', type);
+
   switch(type){
-    case GET_CATEGORIES: return {...state, categories: payload};
+    case SET_CATEGORIES: return {...state, categories: payload};
     case GET_HISTORY: return {...state, history: payload};
-    case GET_TOTAL: return {...state, total: payload};
-    default: return state;
+    case GET_TOTAL: console.log('tot'); return {...state, total: payload};
+    default: console.log('default'); return state;
   }
 }

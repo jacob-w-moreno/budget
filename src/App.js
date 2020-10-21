@@ -32,4 +32,4 @@ function App() {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {setCategories})(App);
+export default connect(mapStateToProps, setCategories)(App);
