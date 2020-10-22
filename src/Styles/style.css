@@ -27,6 +27,7 @@ button {
   border: none;
   border-radius: 5px;
   outline: none;
+  margin-top: 16px;
   height: 40px;
   width: 100%;
   background: #fe8626;
@@ -176,6 +177,12 @@ a {
           align-items: center;
 }
 
+.edit__input {
+  background: none;
+  color: white;
+  width: 100px;
+}
+
 #header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -212,7 +219,7 @@ a {
 }
 
 .p-percentage-list-item {
-  padding: 14px 0px;
+  padding: 12px 16px;
   border-bottom: 3px solid #8a8a8a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,7 +238,7 @@ a {
 }
 
 .overflow-list-item {
-  padding: 14px 0px;
+  padding: 12px 16px;
   border-bottom: 3px solid #8a8a8a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -250,7 +257,7 @@ a {
 }
 
 .dp-list-item {
-  padding: 14px 0px;
+  padding: 12px 16px;
   border-bottom: 3px solid #8a8a8a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -272,7 +279,7 @@ a {
 }
 
 .history-inc-list-item {
-  padding: 14px 0px;
+  padding: 12px 16px;
   border-bottom: 3px solid #8a8a8a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -291,7 +298,7 @@ a {
 }
 
 .history-exp-list-item {
-  padding: 14px 0px;
+  padding: 12px 16px;
   border-bottom: 3px solid #8a8a8a;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -67,7 +67,7 @@ button{
 #obligatory-div{
   @include dim(calc(100vh - 200px), 100%);
   max-width: 500px;
-  // @include border(red);
+
 }
   #everything-but-the-header{
     @include dim(100%, 100%);
@@ -75,7 +75,6 @@ button{
     justify-content: space-between;
   }
     #top-stuff{
-      // @include border(green);
       width: 100%;
       border-bottom: 3px solid $lightgray;
       border-bottom-left-radius: 10px;
@@ -113,6 +112,7 @@ a{
 
 @import './dashboard.scss';
 @import './budget.scss';
+@import './edit.scss';
 @import './header.scss';
 @import './listitem.scss';
 @import './transaction.scss';
