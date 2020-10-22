@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import CategoryContext from '../../context/categoryContext';
 
@@ -6,6 +6,38 @@ import DollarEdit from './DollarEdit';
 import Header from '../Header';
 
 const BudgetEdit = (props) => {
+
+  const [tempCat, setTempCat] = useState([]);
+
+  const categoryContext = useContext(CategoryContext);
+
+  useEffect(()=>{
+    setTempCat(categoryContext.categories);
+  },[])
+
+// === === === FUNCTIONS START === === ===
+
+  const editName = async(id, value) => {
+    const categoryIndex = tempCat.findIndex(category => {
+      return category.id === id
+    })
+
+    const category = {
+      ...tempCat[categoryIndex]
+    };
+    category.name = value;
+
+    const newCategories = [...tempCat];
+    newCategories[id] = category;
+    setTempCat(newCategories);
+  }
+
+  const saveOld = async() => {
+    await categoryContext.setCategories(tempCat)
+    props.history.push('/');
+  }
+
+// === === === FUNCTIONS START === === ===
 
 // === === === JSX START === === ===
 
@@ -15,6 +47,20 @@ const BudgetEdit = (props) => {
     <span id='right'>BALANCE</span>
   </div>
 
+  const dollars = tempCat
+    // .filter(category => category.type === "$")
+    .map(category => <DollarEdit
+        name={category.name}
+        editName={editName}
+        type={category.type}
+        allocated={category.allocated}
+        // editAllocation={context.editAllocation}
+        balance={category.balance}
+        id={category.id}
+        key={category.id}
+      />
+    )
+
 // === === === JSX END === === ===
 
   return (<div id='obligatory-div'>
@@ -23,27 +69,12 @@ const BudgetEdit = (props) => {
       <div id='top-stuff'>
         {whiteBar}
         <div className='list'>
-          <CategoryContext.Consumer>
-            {context => context.categories
-              // .filter(category => category.type === "$")
-              .map(category => {
-                return (<DollarEdit
-                  name={category.name}
-                  editName={context.editName}
-                  type={category.type}
-                  allocated={category.allocated}
-                  editAllocation={context.editAllocation}
-                  balance={category.balance}
-                  id={category.id}
-                  key={category.id}
-                />)
-              })}
-          </CategoryContext.Consumer>
+          {dollars}
           {/* {percentages} */}
         </div>
       </div>
       <div className='button-container'>
-        <button>SAVE</button>
+        <button onClick={async()=>{saveOld()}}>SAVE</button>
       <Link to='/'>
         <button>CANCEL</button>
       </Link>

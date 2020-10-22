@@ -35,7 +35,7 @@ function App() {
     const categoryIndex = categories.findIndex(category => {
       return category.id === id
     })
-    
+
     const category = {
       ...categories[categoryIndex]
     };
@@ -55,6 +55,7 @@ function App() {
       <Dashboard/>
       <CategoryContext.Provider value={{
         categories,
+        setCategories,
         editAllocation,
         editName
       }}>
