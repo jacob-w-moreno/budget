@@ -1,16 +1,12 @@
-const { connect } = require('react-redux')
-
-class MainView extends Component {
-  onSearchPressed() {
-    this.props.dispatchAddToSaved();
-  }
-  render() {...}
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchAddToSaved: () => dispatch(addToSaved())
-  }
-}
-
-module.exports = connect(null, mapDispatchToProps)(MainView)
+const dollars = categories.filter(element => element.type === "$").map(category => {
+  return ( <DollarEdit
+    name={category.name}
+    editName={editName}
+    type={category.type}
+    allocated={category.allocated}
+    editAllocation={editAllocation}
+    balance={category.balance}
+    id={category.id}
+    key={category.id}
+  /> )
+})

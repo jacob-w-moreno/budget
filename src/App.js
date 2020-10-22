@@ -23,6 +23,29 @@ function App() {
     .catch(error => console.log(error));
   }
 
+  const editAllocation = async(index, value) => {
+    const newCategories = [...categories];
+    console.log(newCategories[index]);
+    newCategories[index]["allocated"] = value;
+    // distributeDollar();
+    setCategories(newCategories);
+  }
+
+  const editName = async(id, value) => {
+    const categoryIndex = categories.findIndex(category => {
+      return category.id === id
+    })
+    
+    const category = {
+      ...categories[categoryIndex]
+    };
+    category.name = value
+
+    const newCategories = [...categories];
+    newCategories[id] = category;
+    setCategories(newCategories);
+  }
+
   useEffect(()=>{
     getCategories();
   },[])
@@ -32,7 +55,8 @@ function App() {
       <Dashboard/>
       <CategoryContext.Provider value={{
         categories,
-        setCategories
+        editAllocation,
+        editName
       }}>
         {routes}
       </CategoryContext.Provider>
@@ -42,4 +66,4 @@ function App() {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, setCategories)(App);
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import CategoryContext from '../../context/categoryContext';
 
 import Header from '../Header';
@@ -9,24 +8,6 @@ import ListItem from './BudgetList';
 const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
-
-  let list = <span id='no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>
-
-  if (props.categories && props.categories.length > 0) {
-    list = props.categories.map(category => {
-      return (
-        <ListItem
-          pennies={showPennies}
-          penniesFN={togglePennies}
-          name={category.name}
-          type={category.type}
-          allocated={category.allocated}
-          balance={category.balance}
-          key={category.id}
-        />
-      )
-    });
-  }
 
   return(<div id='obligatory-div'>
     <Header title="BUDGET"/>
@@ -39,9 +20,21 @@ const Budget = (props) => {
         </div>
 
       <CategoryContext.Consumer>
-        {context => context.categories
-          ? console.log('categories:', context.categories)
-          : console.log('No categories :(')}
+        {context => context.categories && context.categories.length > 0
+          ? context.categories.map(category => {
+            return (
+              <ListItem
+                pennies={showPennies}
+                penniesFN={togglePennies}
+                name={category.name}
+                type={category.type}
+                allocated={category.allocated}
+                balance={category.balance}
+                key={category.id}
+              />
+            )
+          })
+          : <span className='budget__no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>}
       </CategoryContext.Consumer>
         {/* <div className='list'>
           {list}
@@ -58,6 +51,4 @@ const Budget = (props) => {
   </div>)
 }
 
-const mapStateToProps = reduxState => reduxState;
-
-export default connect(mapStateToProps)(Budget);
+export default Budget;

@@ -4,7 +4,7 @@
   padding: 0px 20px;
 }
   @mixin list-item{
-    padding: 14px 0px;
+    padding: 12px 16px;
     border-bottom: 3px solid $lightgray;
     @include row(space-between);
     align-items: center;
