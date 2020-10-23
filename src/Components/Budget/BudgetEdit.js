@@ -13,7 +13,7 @@ const BudgetEdit = (props) => {
 
   useEffect(()=>{
     setTempCat(categoryContext.categories);
-  },[])
+  },[categoryContext.categories])
 
 // === === === FUNCTIONS START === === ===
 
