@@ -5,15 +5,22 @@ import './Styles/style.scss';
 
 import axios from 'axios';
 
-import {connect} from 'react-redux';
-// import {setCategories} from './redux/reducer';
 import CategoryContext from './context/categoryContext';
+import TotalContext from './context/totalContext';
 
 function App() {
 
   const [categories, setCategories] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  console.log('[App] categories:', categories);
+  useEffect(()=>{
+    getCategories();
+    getTotal();
+  },[])
+
+// === === TOTALS START === ===
+
+  // === AXIOS START ===
 
   const getCategories = () => { axios
     .get('/api/categories')
@@ -22,6 +29,17 @@ function App() {
     })
     .catch(error => console.log(error));
   }
+
+  console.log('total:', total)
+  const getTotal = () => { axios
+    .get('/api/total')
+    .then(response => {
+      setTotal(response.data.total)
+    })
+    .catch(error => console.log(error));
+  }
+
+  // === AXIOS END ===
 
   const editAllocation = async(index, value) => {
     const newCategories = [...categories];
@@ -46,13 +64,18 @@ function App() {
     setCategories(newCategories);
   }
 
-  useEffect(()=>{
-    getCategories();
-  },[])
+// === === TOTALS END === ===
 
   return (
     <div className="App">
-      <Dashboard/>
+
+      <TotalContext.Provider value={{
+        total,
+        setTotal
+      }}>
+        <Dashboard/>
+      </TotalContext.Provider>
+
       <CategoryContext.Provider value={{
         categories,
         setCategories,
@@ -65,6 +88,4 @@ function App() {
   );
 }
 
-const mapStateToProps = reduxState => reduxState
-
-export default connect(mapStateToProps)(App);
+export default App;
