@@ -18,7 +18,23 @@ function App() {
     getTotal();
   },[])
 
-// === === TOTALS START === ===
+  const dollarTotal = categories
+  .filter(category => category.type==='$')
+  .reduce((total, current) => total + current['balance'],0);
+
+  const dollarAllocated = categories
+  .filter(category => category.type==='$')
+  .reduce((total, current) => total + current['allocated'],0);
+
+  const percentageTotal = categories
+  .filter(category => category.type==='%' || category.type==='O')
+  .reduce((total, current) => total + current['balance'],0);
+
+  const percentageAllocated = categories
+  .filter(category => category.type==='%' || category.type==='O')
+  .reduce((total, current) => total + current['allocated'],0);
+
+// === === FUNCTIONS START === ===
 
   // === AXIOS START ===
 
@@ -30,7 +46,6 @@ function App() {
     .catch(error => console.log(error));
   }
 
-  console.log('total:', total)
   const getTotal = () => { axios
     .get('/api/total')
     .then(response => {
@@ -43,7 +58,6 @@ function App() {
 
   const editAllocation = async(index, value) => {
     const newCategories = [...categories];
-    console.log(newCategories[index]);
     newCategories[index]["allocated"] = value;
     // distributeDollar();
     setCategories(newCategories);
@@ -64,7 +78,7 @@ function App() {
     setCategories(newCategories);
   }
 
-// === === TOTALS END === ===
+// === === FUNCTIONS END === ===
 
   return (
     <div className="App">
@@ -73,7 +87,11 @@ function App() {
         total,
         setTotal
       }}>
-        <Dashboard/>
+        <Dashboard
+        dollarTotal={dollarTotal}
+        dollarAllocated={dollarAllocated}
+        percentageTotal={percentageTotal}
+        percentageAllocated={percentageAllocated}/>
       </TotalContext.Provider>
 
       <CategoryContext.Provider value={{
@@ -84,6 +102,7 @@ function App() {
       }}>
         {routes}
       </CategoryContext.Provider>
+
     </div>
   );
 }

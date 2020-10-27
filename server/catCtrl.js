@@ -23,7 +23,7 @@ let categories = [
   {
     name: 'Entertainment',
     type: '%',
-    allocated: 100,
+    allocated: 90,
     balance: 100,
     id: 3
   }

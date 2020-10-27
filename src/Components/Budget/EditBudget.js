@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import CategoryContext from '../../context/categoryContext';
 
-import DollarEdit from './DollarEdit';
+import EditItem from './EditItem';
 import Header from '../Header';
 
 const BudgetEdit = (props) => {
@@ -49,7 +49,7 @@ const BudgetEdit = (props) => {
 
   const dollars = tempCat
     // .filter(category => category.type === "$")
-    .map(category => <DollarEdit
+    .map(category => <EditItem
         name={category.name}
         editName={editName}
         type={category.type}
