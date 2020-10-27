@@ -1,24 +1,31 @@
 let categories = [
   {
-    name: 'test',
-    type: '$',
-    allocated: 400,
-    balance: 300,
+    name: 'Savings',
+    type: '!%',
+    allocated: 10,
+    balance: 100,
     id: 0
   },
   {
-    name: 'test 2',
-    type: '%',
-    allocated: 100,
-    balance: 250,
+    name: 'Gas',
+    type: '$',
+    allocated: 45,
+    balance: 45,
     id: 1
   },
   {
-    name: 'test 3',
-    type: '$',
-    allocated: 200,
-    balance: 200,
+    name: 'Overflow',
+    type: 'O',
+    allocated: 10,
+    balance: 100,
     id: 2
+  },
+  {
+    name: 'Entertainment',
+    type: '%',
+    allocated: 100,
+    balance: 100,
+    id: 3
   }
 ]
 

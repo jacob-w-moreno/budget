@@ -3,48 +3,26 @@
   overflow: scroll;
   padding: 0px 20px;
 }
-  @mixin list-item{
-    padding: 12px 16px;
-    border-bottom: 3px solid $lightgray;
-    @include row(space-between);
-    align-items: center;
-  }
-
-  .p-percentage-list-item{
-    @include list-item;
-    color: gold;
-  }
-  .overflow-list-item{
-    @include list-item;
-    color: $lightgray;
-  }
-  .dp-list-item{
-    @include list-item;
-  }
-  .dp-list-item:last-of-type{
+.list-item{
+  @include row(space-between);
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 2px solid $lightgray;
+  &:last-of-type{
     border: none;
   }
-
-  .history-inc-list-item{
-    @include list-item;
-    color: $green;
+}
+  .priority-percentage{
+    color: gold;
   }
-  .history-exp-list-item{
-    @include list-item;
-    color: $red;
+  .overflow{
+    color: $lightgray;
   }
 
-
-.list-display{
+.list-item__display{
   width: 33%;
   overflow: scroll;
   &:hover{
     cursor: pointer;
   }
-}
-#no-border{
-  border: none;
-}
-#no-categories{
-  color: black;
 }

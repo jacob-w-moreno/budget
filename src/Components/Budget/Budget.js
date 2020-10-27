@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import CategoryContext from '../../context/categoryContext';
 
 import Header from '../Header';
-import ListItem from './BudgetList';
+import ListItem from './ListItem';
 
 const Budget = (props) => {
 
@@ -15,8 +15,8 @@ const Budget = (props) => {
       <div id='top-stuff'>
         <div className='white-bar'>
           <span>ALLOCATED</span>
-          <span id='middle'>NAME</span>
-          <span id='right'>BALANCE</span>
+          <span className='middle'>NAME</span>
+          <span className='right'>BALANCE</span>
         </div>
 
       <CategoryContext.Consumer>
@@ -24,8 +24,8 @@ const Budget = (props) => {
           ? context.categories.map(category => {
             return (
               <ListItem
+                penniesFN={()=>togglePennies(showPennies ? false : true)}
                 pennies={showPennies}
-                penniesFN={togglePennies}
                 name={category.name}
                 type={category.type}
                 allocated={category.allocated}
