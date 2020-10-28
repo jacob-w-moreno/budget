@@ -15,6 +15,7 @@ app.get('/api/transactions', transCtrl.getTransactions);
 app.post('/api/transactions', transCtrl.addTransaction);
 
 app.get('/api/total', totCtrl.getTotal);
+app.put('/api/total', totCtrl.putTotal);
 
 // === === AXIOS END === ===
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Context from '../context/Context';
+import Context from '../Context/Context';
 
 const Dashboard = (props) => {
 
@@ -20,7 +20,7 @@ const Dashboard = (props) => {
       <div className='dashboard__line'/>
       <span>% {props.percentageAllocated}</span>
     </div>
-    
+
   </div> )
 }
 

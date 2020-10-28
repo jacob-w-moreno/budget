@@ -5,7 +5,7 @@ import './Styles/style.scss';
 
 import axios from 'axios';
 
-import Context from './context/Context';
+import Context from './Context/Context';
 
 function App() {
 
@@ -15,8 +15,8 @@ function App() {
 
   useEffect(()=>{
     getCategories();
-    getTotal();
     getTransactions();
+    getTotal();
   },[])
 
   const dollarTotal = categories

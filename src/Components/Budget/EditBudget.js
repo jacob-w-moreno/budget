@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import Context from '../../context/Context';
+import Context from '../../Context/Context';
 
 import EditItem from './EditItem';
 import Header from '../Header';

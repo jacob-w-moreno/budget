@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom';
-import Context from '../../context/Context';
+import Context from '../../Context/Context';
 
 import Header from '../Header';
 import ListItem from './ListItem';
@@ -18,7 +18,7 @@ const Budget = (props) => {
     <div id='everything-but-the-header'>
 
       <div id='top-stuff'>
-        
+
         <div className='white-bar'>
           <span>ALLOCATED</span>
           <span className='middle'>NAME</span>

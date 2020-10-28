@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../Header';
-import Context from '../../context/Context';
+import Context from '../../Context/Context';
 
 const Transaction = (props) => {
 
@@ -27,13 +27,20 @@ const Transaction = (props) => {
 
   // === === FUNCTIONS START === ===
 
-  const addTransaction = () => { axios
-    .post('/api/transactions', {type, amount, description, category_id, date})
-    .then((res) => {
-      context.setTransactions(res.data);
-      props.history.push('/');
-    })
-    .catch(error => console.log(error));
+  const addTransaction = () => {
+    axios
+      .post('/api/transactions', {type, amount, description, category_id, date})
+      .then((res) => {
+        context.setTransactions(res.data);
+      })
+      .catch(error => console.log(error));
+    axios
+      .put('/api/total', {type, amount})
+      .then((res) => {
+        context.setTotal(res.data.total);
+        props.history.push('/');
+      })
+      .catch(error => console.log(error))
   }
 
   // === === FUNCTIONS START === ===
@@ -48,9 +55,9 @@ const Transaction = (props) => {
   let category;
     if (type==='-') {
       category =
-        <div className='trans-info'>
+        <div className='trans__info'>
           <span>CATEGORY</span>
-          <div id='trans-category'>
+          <div className='trans__category'>
             CHEESE
             <div>$89.74</div>
           </div>
@@ -66,7 +73,7 @@ const Transaction = (props) => {
         {toggleType}
 
         <div id='trans-info-container'>
-          <div className='trans-info'>
+          <div className='trans__info'>
             <span>AMOUNT</span>
             $<input
             className='transaction-input'
@@ -75,7 +82,7 @@ const Transaction = (props) => {
             onChange={event=>setAmount(event.target.value)}/>
           </div>
 
-          <div className='trans-info'>
+          <div className='trans__info'>
             <span>DESCRIPTION</span>
             <input className='trans-input'
             placeholder='Add a description'
@@ -84,7 +91,7 @@ const Transaction = (props) => {
             type='text'/>
           </div>
 
-          <div className='trans-info'>
+          <div className='trans__info'>
             <span>DATE</span>
             <div>JUN. 28, 2020</div>
           </div>

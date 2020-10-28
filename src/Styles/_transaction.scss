@@ -14,7 +14,7 @@
   margin: 0px 20px 20px 20px;
   border-bottom: 2px solid #999;
 }
-  .trans-info{
+  .trans__info{
     @include row(flex-start);
     padding: 8px 0px;
     border-top: 2px solid #999;
@@ -37,8 +37,17 @@
       color: white;
       font-size: 14px;
     }
+    transition: transform 0.3s ease-out;
   }
-#trans-category{
+.trans__category{
   width: 68%;
   @include row(space-between);
+}
+
+.open {
+  transform: translateY(0);
+}
+
+.close {
+  transform: translateY(-100%);
 }

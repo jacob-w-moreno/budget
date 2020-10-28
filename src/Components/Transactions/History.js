@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import Header from '../Header';
 import ListItem from './ListItem';
-import Context from '../../context/Context';
+import Context from '../../Context/Context';
 
-const Transactions = (props) => {
+const History = (props) => {
 
   const context = useContext(Context);
 
@@ -35,4 +35,4 @@ const Transactions = (props) => {
     </div>
   </div>)
 }
-export default Transactions;
+export default History;
