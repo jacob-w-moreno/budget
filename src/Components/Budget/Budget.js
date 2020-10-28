@@ -21,24 +21,19 @@ const Budget = (props) => {
 
       <CategoryContext.Consumer>
         {context => context.categories && context.categories.length > 0
-          ? context.categories.map(category => {
-            return (
-              <ListItem
-                penniesFN={()=>togglePennies(showPennies ? false : true)}
-                pennies={showPennies}
-                name={category.name}
-                type={category.type}
-                allocated={category.allocated}
-                balance={category.balance}
-                key={category.id}
-              />
-            )
-          })
+          ? context.categories.map(category =>
+            <ListItem
+              penniesFN={()=>togglePennies(showPennies ? false : true)}
+              pennies={showPennies}
+              name={category.name}
+              type={category.type}
+              allocated={category.allocated}
+              balance={category.balance}
+              key={category.id}
+            />
+          )
           : <span className='budget__no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>}
       </CategoryContext.Consumer>
-        {/* <div className='list'>
-          {list}
-        </div> */}
       </div>
 
       <div className='button-container'>

@@ -7,15 +7,18 @@ import axios from 'axios';
 
 import CategoryContext from './context/categoryContext';
 import TotalContext from './context/totalContext';
+import TransactionContext from './context/transactionContext';
 
 function App() {
 
   const [categories, setCategories] = useState([]);
   const [total, setTotal] = useState(0);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(()=>{
     getCategories();
     getTotal();
+    getTransactions();
   },[])
 
   const dollarTotal = categories
@@ -50,6 +53,14 @@ function App() {
     .get('/api/total')
     .then(response => {
       setTotal(response.data.total)
+    })
+    .catch(error => console.log(error));
+  }
+
+  const getTransactions = () => { axios
+    .get('/api/transactions')
+    .then(response => {
+      setTransactions(response.data)
     })
     .catch(error => console.log(error));
   }
@@ -94,14 +105,20 @@ function App() {
         percentageAllocated={percentageAllocated}/>
       </TotalContext.Provider>
 
+      <TransactionContext.Provider value={{
+        transactions,
+        setTransactions
+      }}>
       <CategoryContext.Provider value={{
         categories,
         setCategories,
         editAllocation,
-        editName
+        editName,
+        transactions
       }}>
         {routes}
       </CategoryContext.Provider>
+      </TransactionContext.Provider>
 
     </div>
   );
