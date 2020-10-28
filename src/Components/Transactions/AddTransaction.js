@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Header from '../Header';
 import Context from '../../Context/Context';
+import Backdrop from '../UI/Backdrop';
 
 const Transaction = (props) => {
 
@@ -12,17 +13,17 @@ const Transaction = (props) => {
   const [description, setDescription] = useState('');
   const [category_id, setCategory_id] = useState(0);
   const [date, setDate] = useState('');
+  // const [showModal, setShowModal] = useState(true);
 
   const context = useContext(Context);
 
   useEffect(()=>{
     let newDate = new Date();
 
-    let year = newDate.getFullYear();
     let month = newDate.getMonth()+1;
     let d8 = newDate.getDate();
 
-    setDate(d8+'/'+month+'/'+year);
+    setDate(d8 + ' / ' + month);
   },[])
 
   // === === FUNCTIONS START === ===
@@ -43,16 +44,27 @@ const Transaction = (props) => {
       .catch(error => console.log(error))
   }
 
-  // === === FUNCTIONS START === ===
+  // === === FUNCTIONS END === ===
 
-  let toggleType =
-    <div id='trans-buttons-container'>
-      <button id={type === '+' ? null : 'trans-button-not'} onClick={()=>setType('+')}>INCOME</button>
-      <div id='button-spacer'/>
-      <button id={type === '+' ? 'trans-button-not' : null} onClick={()=>setType('-')}>EXPENSE</button>
+  let toggleTypeButtons =
+    <div className='trans__buttons-container'>
+
+      <button className={type === '+' ? null : 'trans__button-not'}
+      onClick={()=>setType('+')}>
+        INCOME
+      </button>
+
+      <div className='button__spacer'/>
+
+      <button className={type === '+' ? 'trans__button-not' : null}
+      onClick={()=>setType('-')}>
+        EXPENSE
+      </button>
+
     </div>
 
   let category;
+
     if (type==='-') {
       category =
         <div className='trans__info'>
@@ -65,12 +77,15 @@ const Transaction = (props) => {
     }
 
   return (<div id='obligatory-div'>
+
+    <Backdrop>HELLO</Backdrop>
+
     <Header title='TRANSACTION'/>
 
     <div id='everything-but-the-header'>
       <div id='top-stuff'>
 
-        {toggleType}
+        {toggleTypeButtons}
 
         <div id='trans-info-container'>
           <div className='trans__info'>
@@ -99,11 +114,9 @@ const Transaction = (props) => {
           {category}
 
         </div>
-        <div className='button-container'>
-          <button onClick={()=>addTransaction()}>ADD TRANSACTION</button>
-        </div>
       </div>
       <div className='button-container'>
+        <button onClick={()=>addTransaction()}>ADD TRANSACTION</button>
         <Link to='/'>
           <button>CANCEL</button>
         </Link>

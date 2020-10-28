@@ -18,16 +18,18 @@ const History = (props) => {
         </div>
 
       {context.transactions && context.transactions.length > 0
-          ? context.transactions.map(transaction =>
-            <ListItem
-              key={transaction.id}
-              id={transaction.id}
-              type={transaction.type}
-              date={transaction.date}
-              description={transaction.description}
-              amount={transaction.amount}
-              category_id={transaction.category_id}
-            />
+          ? context.transactions
+            .sort((trans1, trans2) => trans2.id - trans1.id)
+            .map(transaction =>
+              <ListItem
+                key={transaction.id}
+                id={transaction.id}
+                type={transaction.type}
+                date={transaction.date}
+                description={transaction.description}
+                amount={transaction.amount}
+                category_id={transaction.category_id}
+              />
           )
           : null }
 

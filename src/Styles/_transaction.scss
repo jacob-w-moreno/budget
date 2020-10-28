@@ -1,18 +1,17 @@
-#trans-buttons-container{
-  margin: 20px;
+.trans__buttons-container{
+  margin: 20px; margin-bottom: 4px;
   @include row(space-between);
 }
-  #trans-button-not{
+  .trans__button-not{
     background: none;
     border: 3px solid #999;
   }
-  #button-spacer{
+  .button__spacer{
     width: 40px;
   }
 
 #trans-info-container{
-  margin: 0px 20px 20px 20px;
-  border-bottom: 2px solid #999;
+  margin: 0px 20px;
 }
   .trans__info{
     @include row(flex-start);

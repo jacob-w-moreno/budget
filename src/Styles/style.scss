@@ -48,7 +48,7 @@ button{
   border: none;
   border-radius: 5px;
   outline: none;
-  margin-top: 16px;
+  margin-bottom: 16px;
 
   @include dim(40px, 100%);
   background: $orange;
@@ -98,8 +98,8 @@ button{
         text-align: right;
       }
     .button-container{
-      // @include border(green);
-      margin-bottom: 20px;
+
+      margin-bottom: 16px;
       width: 100%;
       padding: 0px 20px;
     }
@@ -114,6 +114,7 @@ a{
 @import './budget.scss';
 @import './edit.scss';
 @import './header.scss';
+@import './history.scss';
 @import './listitem.scss';
 @import './transaction.scss';
-@import './history.scss';
+@import './ui.scss';

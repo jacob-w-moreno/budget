@@ -13,7 +13,7 @@ const Dashboard = (props) => {
       <span>$ {props.dollarAllocated}</span>
     </div>
 
-    <div className='circle'>$ {context.total}</div>
+    <div className='circle'>{context.total.toFixed(2)}</div>
 
     <div className='dashboard__totals'>
       <span>$ {props.percentageTotal}</span>
