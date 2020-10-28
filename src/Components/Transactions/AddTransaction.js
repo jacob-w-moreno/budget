@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Header from '../Header';
-import TransactionContext from '../../context/transactionContext';
+import Context from '../../context/Context';
 
 const Transaction = (props) => {
 
@@ -12,6 +12,8 @@ const Transaction = (props) => {
   const [description, setDescription] = useState('');
   const [category_id, setCategory_id] = useState(0);
   const [date, setDate] = useState('');
+
+  const context = useContext(Context);
 
   useEffect(()=>{
     let newDate = new Date();
@@ -27,7 +29,10 @@ const Transaction = (props) => {
 
   const addTransaction = () => { axios
     .post('/api/transactions', {type, amount, description, category_id, date})
-    .then(props.history.push('/'))
+    .then((res) => {
+      context.setTransactions(res.data);
+      props.history.push('/');
+    })
     .catch(error => console.log(error));
   }
 

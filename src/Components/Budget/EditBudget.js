@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import CategoryContext from '../../context/categoryContext';
+import Context from '../../context/Context';
 
 import EditItem from './EditItem';
 import Header from '../Header';
@@ -9,11 +9,11 @@ const BudgetEdit = (props) => {
 
   const [tempCat, setTempCat] = useState([]);
 
-  const categoryContext = useContext(CategoryContext);
+  const context = useContext(Context);
 
   useEffect(()=>{
-    setTempCat(categoryContext.categories);
-  },[categoryContext.categories])
+    setTempCat(context.categories);
+  },[context.categories])
 
 // === === === FUNCTIONS START === === ===
 
@@ -33,7 +33,7 @@ const BudgetEdit = (props) => {
   }
 
   const saveOld = async() => {
-    await categoryContext.setCategories(tempCat)
+    await context.setCategories(tempCat)
     props.history.push('/');
   }
 

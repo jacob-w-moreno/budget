@@ -5,9 +5,7 @@ import './Styles/style.scss';
 
 import axios from 'axios';
 
-import CategoryContext from './context/categoryContext';
-import TotalContext from './context/totalContext';
-import TransactionContext from './context/transactionContext';
+import Context from './context/Context';
 
 function App() {
 
@@ -94,31 +92,23 @@ function App() {
   return (
     <div className="App">
 
-      <TotalContext.Provider value={{
-        total,
-        setTotal
+      <Context.Provider value={{
+        total, setTotal,
+        transactions, setTransactions,
+        categories, setCategories,
+        editAllocation,
+        editName
       }}>
+
         <Dashboard
         dollarTotal={dollarTotal}
         dollarAllocated={dollarAllocated}
         percentageTotal={percentageTotal}
         percentageAllocated={percentageAllocated}/>
-      </TotalContext.Provider>
 
-      <TransactionContext.Provider value={{
-        transactions,
-        setTransactions
-      }}>
-      <CategoryContext.Provider value={{
-        categories,
-        setCategories,
-        editAllocation,
-        editName,
-        transactions
-      }}>
         {routes}
-      </CategoryContext.Provider>
-      </TransactionContext.Provider>
+
+      </Context.Provider>
 
     </div>
   );

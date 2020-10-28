@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom';
-import CategoryContext from '../../context/categoryContext';
+import Context from '../../context/Context';
 
 import Header from '../Header';
 import ListItem from './ListItem';
@@ -9,18 +9,23 @@ const Budget = (props) => {
 
   const [showPennies, togglePennies] = useState(false);
 
+  const context = useContext(Context);
+
   return(<div id='obligatory-div'>
+
     <Header title="BUDGET"/>
+
     <div id='everything-but-the-header'>
+
       <div id='top-stuff'>
+        
         <div className='white-bar'>
           <span>ALLOCATED</span>
           <span className='middle'>NAME</span>
           <span className='right'>BALANCE</span>
         </div>
 
-      <CategoryContext.Consumer>
-        {context => context.categories && context.categories.length > 0
+      {context.categories && context.categories.length > 0
           ? context.categories.map(category =>
             <ListItem
               penniesFN={()=>togglePennies(showPennies ? false : true)}
@@ -33,14 +38,15 @@ const Budget = (props) => {
             />
           )
           : <span className='budget__no-categories'>You don't have any categories yet... Click "EDIT" to start budgeting.</span>}
-      </CategoryContext.Consumer>
+
       </div>
 
       <div className='button-container'>
-      <Link to='/edit-budget'>
-        <button>EDIT</button>
-      </Link>
+        <Link to='/edit-budget'>
+          <button>EDIT</button>
+        </Link>
       </div>
+
     </div>
 
   </div>)

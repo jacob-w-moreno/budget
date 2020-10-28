@@ -42,8 +42,8 @@ const BudgetList = (props) => {
     <span className='list-item__display right'
     onClick={props.penniesFN}>
       {props.pennies
-        ? '$ ' + props.balance.toFixed(2)
-        : '$ ' + props.balance.toFixed(0)
+        ? props.balance.toFixed(2)
+        : props.balance.toFixed(0)
       }
     </span>
   </div>)

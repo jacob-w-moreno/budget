@@ -24,7 +24,7 @@ const ListItem = (props) => {
     </span>
 
     <span className='list-item__display right'>
-      $ {props.amount}
+      {props.amount}
     </span>
 
   </div>)

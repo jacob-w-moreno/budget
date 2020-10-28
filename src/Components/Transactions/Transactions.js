@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../Header';
 import ListItem from './ListItem';
-import TransactionContext from '../../context/transactionContext';
+import Context from '../../context/Context';
 
 const Transactions = (props) => {
+
+  const context = useContext(Context);
+
   return (<div id='obligatory-div'>
     <Header title = 'HISTORY'/>
     <div id='everything-but-the-header'>
@@ -14,8 +17,7 @@ const Transactions = (props) => {
           <span className='right'>AMOUNT</span>
         </div>
 
-      <TransactionContext.Consumer>
-        {context => context.transactions && context.transactions.length > 0
+      {context.transactions && context.transactions.length > 0
           ? context.transactions.map(transaction =>
             <ListItem
               key={transaction.id}
@@ -28,7 +30,7 @@ const Transactions = (props) => {
             />
           )
           : null }
-      </TransactionContext.Consumer>
+
       </div>
     </div>
   </div>)
