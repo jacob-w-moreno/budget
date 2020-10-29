@@ -1,3 +1,50 @@
+.trans-modal {
+  position: fixed;
+  z-index: 500;
+  background-color: $lightgray;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px black;
+  // padding: 16px;
+  left: 10%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}
+
+.trans-modal__header {
+  position: relative;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  text-align: center;
+  padding: 8px;
+  background: $orange;
+}
+
+.trans-modal__exit {
+  @include dim(35px, 35px);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (min-width: 600px) {
+  .Modal {
+      width: 500px;
+      left: calc(50% - 250px);
+  }
+}
+
+.trans-modal__category{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px;
+  padding: 8px 0;
+  border-bottom: 2px solid $darkgray;
+  &:hover{ cursor: pointer }
+  &:last-of-type{ border: none; }
+}
+
 .backdrop {
   width: 100%;
   height: 100vh;
@@ -5,5 +52,5 @@
   z-index: 100;
   left: 0;
   top: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Header from '../Header';
 import Context from '../../Context/Context';
-import Backdrop from '../UI/Backdrop';
+import Modal from './CategoryModal';
 
 const Transaction = (props) => {
 
@@ -13,7 +13,7 @@ const Transaction = (props) => {
   const [description, setDescription] = useState('');
   const [category_id, setCategory_id] = useState(0);
   const [date, setDate] = useState('');
-  // const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const context = useContext(Context);
 
@@ -69,18 +69,24 @@ const Transaction = (props) => {
       category =
         <div className='trans__info'>
           <span>CATEGORY</span>
-          <div className='trans__category'>
-            CHEESE
-            <div>$89.74</div>
+          <div className='trans__category'
+          onClick={()=>setShowModal(true)}>
+            {context.categories[category_id].name.toUpperCase()}
+            <div>$ {context.categories[category_id].balance}</div>
           </div>
       </div>
     }
 
   return (<div id='obligatory-div'>
 
-    <Backdrop>HELLO</Backdrop>
 
     <Header title='TRANSACTION'/>
+    <Modal
+    show={showModal}
+    close={()=>setShowModal(false)}
+    chooseCategory={setCategory_id}>
+      HELLO
+    </Modal>
 
     <div id='everything-but-the-header'>
       <div id='top-stuff'>

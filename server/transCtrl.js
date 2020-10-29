@@ -24,15 +24,17 @@ module.exports = {
     res.status(200).send(transactions);
   },
   addTransaction: (req, res) => {
-    const {type, amount, description, category_id, date} = req.body;
+    let {type, amount, description, category_id, date} = req.body;
+    if (type==="+") category_id = null;
     const newTransaction = {
       id: id++,
       type,
-      amount,
+      amount: +amount,
       description,
       category_id,
       date
     }
+    console.log(type, amount, description, category_id, date)
     transactions.push(newTransaction);
     res.status(200).send(transactions);
   }

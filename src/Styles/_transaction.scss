@@ -41,6 +41,7 @@
 .trans__category{
   width: 68%;
   @include row(space-between);
+  &:hover{ cursor: pointer }
 }
 
 .open {

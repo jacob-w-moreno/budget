@@ -360,6 +360,10 @@ a {
           justify-content: space-between;
 }
 
+.trans__category:hover {
+  cursor: pointer;
+}
+
 .open {
   -webkit-transform: translateY(0);
           transform: translateY(0);
@@ -370,6 +374,66 @@ a {
           transform: translateY(-100%);
 }
 
+.trans-modal {
+  position: fixed;
+  z-index: 500;
+  background-color: #8a8a8a;
+  width: 80%;
+  border-radius: 8px;
+  -webkit-box-shadow: 1px 1px 1px black;
+          box-shadow: 1px 1px 1px black;
+  left: 10%;
+  top: 30%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.trans-modal__header {
+  position: relative;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  text-align: center;
+  padding: 8px;
+  background: #fe8626;
+}
+
+.trans-modal__exit {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (min-width: 600px) {
+  .Modal {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
+
+.trans-modal__category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 8px;
+  padding: 8px 0;
+  border-bottom: 2px solid #4d4d4d;
+}
+
+.trans-modal__category:hover {
+  cursor: pointer;
+}
+
+.trans-modal__category:last-of-type {
+  border: none;
+}
+
 .backdrop {
   width: 100%;
   height: 100vh;
@@ -377,6 +441,6 @@ a {
   z-index: 100;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 /*# sourceMappingURL=style.css.map */
