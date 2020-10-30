@@ -18,7 +18,7 @@ const Dashboard = (props) => {
     <div className='dashboard__totals'>
       <span>$ {props.percentageTotal.toFixed(2)}</span>
       <div className='dashboard__line'/>
-      <span>% {props.percentageAllocated.toFixed(2)}</span>
+      <span className={props.percentageAllocated === 100 ? null : 'red'}>% {props.percentageAllocated}</span>
     </div>
 
   </div> )

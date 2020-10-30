@@ -5,12 +5,14 @@ import AddTransaction from './Components/Transactions/AddTransaction';
 import Budget from './Components/Budget/Budget';
 import EditBudget from './Components/Budget/EditBudget';
 import History from './Components/Transactions/History';
+import Z from './Components/z';
 
 export default (
   <Switch>
     <Route exact path = '/' component = {Budget}/>
     <Route path = '/history' component = {History}/>
     <Route path = '/transaction' component = {AddTransaction}/>
+    {/* <Route path ='/edit-budget' component = {Z}/> */}
     <Route path ='/edit-budget' component = {EditBudget}/>
   </Switch>
 )

@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
-import Context from '../../Context/Context';
+import Context from '../Context/Context';
 
-import EditItem from '../Budget/EditItem';
-import Header from '../Header';
+import EditItem from './Budget/EditItem';
+import Header from './Header';
 
 const BudgetEdit = (props) => {
 
@@ -51,12 +51,7 @@ const categoriesDisplay = <div className='list'>
         {categoriesDisplay}
       </div>
       <div className='button-container'>
-        <button
-        className={context.percentageAllocated!==100?'transparent':null}
-        disabled={context.percentageAllocated!==100}
-        onClick={()=>{saveEdits()}}>
-          SAVE
-        </button>
+        <button onClick={()=>{saveEdits()}}>SAVE</button>
       <Link to='/'>
         <button>CANCEL</button>
       </Link>

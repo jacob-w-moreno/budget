@@ -41,8 +41,8 @@ const BudgetListEdit = (props) => {
     <CurrencyInput
     className='list-item__display input'
     prefix={props.type==='$'
-    ? '$'
-    : '%'}
+    ? '$ '
+    : '% '}
     precision={props.type==='$'
     ? 2
     : 0}

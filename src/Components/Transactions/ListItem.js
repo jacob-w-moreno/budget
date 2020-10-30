@@ -5,10 +5,10 @@ const ListItem = (props) => {
   let className;
   switch(props.type){
     case ('+'):
-      className='income';
+      className='green';
       break;
     case ('-'):
-      className='expense';
+      className='red';
       break;
     default: className=null;
   }
