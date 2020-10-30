@@ -12,9 +12,9 @@
 
 .dashboard__line{
   margin: 8px 0px;
-  border: 1.5px solid white;
+  border-bottom: 2.5px solid white;
 
-  @include dim(0px, 90px);
+  @include dim(0px, 120px);
 }
 
 .circle{

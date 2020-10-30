@@ -30,7 +30,16 @@ $red: #ff9880;
   border: 2px solid $color;
 }
 
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+}
+
 .App{
+  box-sizing: border-box;
   background: $darkgray;
   min-height: 100vh;
   color: white;
@@ -38,10 +47,6 @@ $red: #ff9880;
   font-size: 14px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-}
-
-*{
-  box-sizing: border-box;
 }
 
 button{
