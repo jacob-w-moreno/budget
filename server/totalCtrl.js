@@ -1,4 +1,4 @@
-let total = {total: 1800.00};
+let total = {total: 1812.53};
 
 module.exports = {
   getTotal: (req, res) => {

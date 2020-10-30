@@ -65,25 +65,6 @@ function App() {
 
   // === AXIOS END ===
 
-  const distributePriorityPercentage = async(index, value) => {
-
-  }
-
-  const editName = async(id, value) => {
-    const categoryIndex = categories.findIndex(category => {
-      return category.id === id
-    })
-
-    const category = {
-      ...categories[categoryIndex]
-    };
-    category.name = value
-
-    const newCategories = [...categories];
-    newCategories[id] = category;
-    setCategories(newCategories);
-  }
-
 // === === FUNCTIONS END === ===
 
   return (
@@ -93,7 +74,6 @@ function App() {
         total, setTotal,
         transactions, setTransactions,
         categories, setCategories,
-        editName
       }}>
 
         <Dashboard

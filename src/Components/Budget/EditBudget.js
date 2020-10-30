@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import Context from '../../Context/Context';
+import axios from 'axios';
 
 import EditItem from './EditItem';
 import Header from '../Header';
@@ -16,6 +17,19 @@ const BudgetEdit = (props) => {
   },[context.categories])
 
 // === === === FUNCTIONS START === === ===
+
+  // === === AXIOS START === ===
+
+    const saveEdits = () => { axios
+      .put('/api/categories', {tempCat})
+      .then(response => {
+        context.setCategories(response.data);
+        props.history.push('/');
+      })
+      .catch(error => console.log(error));
+    }
+
+  // === === AXIOS END === ===
 
   const editAllocation = async(id, value) => {
     const index = tempCat.findIndex(category => category.id === id);
@@ -37,7 +51,7 @@ const BudgetEdit = (props) => {
     .forEach(category => {
       const newCategory = {...category};
       const index = newCategories.findIndex(category => newCategory.id === category.id);
-      newCategory.balance = (newCategory.allocated * .01 * context.total);
+      newCategory.balance = +(newCategory.allocated * .01 * context.total).toFixed(2);
       newCategories[index] = newCategory;
       newTotal = +(newTotal - newCategory.balance).toFixed(2);
     })
@@ -65,7 +79,6 @@ const BudgetEdit = (props) => {
 
       newCategories[index] = newCategory;
     })
-    // setTempCat(newCategories);
     distributePercent(newCategories, newTotal);
   }
 
@@ -78,10 +91,27 @@ const BudgetEdit = (props) => {
       newCategory.balance = +(newCategory.allocated * 0.01 * newTotal).toFixed(2);
       newCategories[index] = newCategory;
     });
-    let sum = newCategories
+
+    fixRoundingErrors(newCategories, newTotal);
+  }
+
+  const fixRoundingErrors = (newCategories, newTotal) => {
+    let fullPercent = newCategories
     .filter(category => category.type === '%' || category.type === 'O')
+    .reduce((sum, current) => sum += current.allocated, 0);
+
+    let sum = newCategories
     .reduce((sum, current) => sum += current.balance, 0);
-    console.log(ole.log())
+    sum = sum.toFixed(2);
+
+    if (fullPercent === 100 && sum !== context.total) {
+      let difference = +(sum - context.total).toFixed(2);
+      console.log(`Sum: ${sum}. Total: ${context.total}. Off by ${difference}`);
+      const index = newCategories.length - 1;
+
+      if (difference < 0) newCategories[index].balance -= difference;
+      if (difference > 0) newCategories[index].balance += difference;
+    }
 
     setTempCat(newCategories);
   }
@@ -101,11 +131,6 @@ const BudgetEdit = (props) => {
     setTempCat(newCategories);
   }
 
-  const saveOld = async() => {
-    await context.setCategories(tempCat)
-    props.history.push('/');
-  }
-
 // === === === FUNCTIONS START === === ===
 
 // === === === JSX START === === ===
@@ -117,7 +142,6 @@ const BudgetEdit = (props) => {
   </div>
 
   const categoriesDisplay = tempCat
-    // .filter(category => category.type === "$")
     .map((category, index) => <EditItem
         name={category.name}
         editName={editName}
@@ -143,7 +167,7 @@ const BudgetEdit = (props) => {
         </div>
       </div>
       <div className='button-container'>
-        <button onClick={async()=>{saveOld()}}>SAVE</button>
+        <button onClick={()=>{saveEdits()}}>SAVE</button>
       <Link to='/'>
         <button>CANCEL</button>
       </Link>

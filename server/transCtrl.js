@@ -6,18 +6,10 @@ let transactions = [
     description: 'all my money',
     category_id: null,
     date: '26 / 10'
-  },
-  {
-    id: 1,
-    type: '-',
-    amount: 12.53,
-    description: 'even it out',
-    category_id: 2,
-    date: '27 / 10'
   }
 ]
 
-let id = 2;
+let id = 1;
 
 module.exports = {
   getTransactions: (req, res) => {

@@ -7,7 +7,7 @@ import ListItem from './ListItem';
 
 const Budget = (props) => {
 
-  const [showPennies, togglePennies] = useState(false);
+  const [showPennies, togglePennies] = useState(true);
 
   const context = useContext(Context);
 

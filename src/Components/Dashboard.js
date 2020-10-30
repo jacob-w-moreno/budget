@@ -8,17 +8,17 @@ const Dashboard = (props) => {
   return( <div id='dashboard'>
 
     <div className='dashboard__totals'>
-      <span>$ {props.dollarTotal}</span>
+      <span>$ {props.dollarTotal.toFixed(2)}</span>
       <div className='dashboard__line'/>
-      <span>$ {props.dollarAllocated}</span>
+      <span>$ {props.dollarAllocated.toFixed(2)}</span>
     </div>
 
     <div className='circle'>{context.total.toFixed(2)}</div>
 
     <div className='dashboard__totals'>
-      <span>$ {props.percentageTotal}</span>
+      <span>$ {props.percentageTotal.toFixed(2)}</span>
       <div className='dashboard__line'/>
-      <span>% {props.percentageAllocated}</span>
+      <span>% {props.percentageAllocated.toFixed(2)}</span>
     </div>
 
   </div> )
