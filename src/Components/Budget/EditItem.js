@@ -7,7 +7,7 @@ const BudgetListEdit = (props) => {
 
 // === === === JSX START === === ===
 
-  const nameInput = <input className='list-item__display input main'
+  const nameInput = <input className='list-item__display input big'
     value={props.name}
     onChange={(e)=>{props.editName(props.id, e.target.value)}}/>
 
@@ -34,7 +34,7 @@ const BudgetListEdit = (props) => {
 
   return (<div className={'list-item ' + className}>
     <CurrencyInput
-    className='list-item__display input'
+    className='list-item__display input medium'
     prefix={props.type==='$'
     ? '$ '
     : '% '}
@@ -46,8 +46,11 @@ const BudgetListEdit = (props) => {
       props.editAllocation(props.id, +floatValue.toFixed(2));
     }}/>
     {nameInput}
-    <div className='list-item__display'>
+    <div className='list-item__display small right'>
       {props.balance.toFixed(2)}
+    </div>
+    <div className='list-item__display small right'>
+      {props.oldBalance.toFixed(2)}
     </div>
   </div>
   )

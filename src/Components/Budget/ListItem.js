@@ -29,8 +29,8 @@ const BudgetList = (props) => {
   return (<div className={'list-item ' + className}>
     <span className='list-item__display'
     onClick={props.penniesFN}>
-      {props.pennies && props.type === '$'
-        ? <span>{prefix} {props.allocated.toFixed(2)} </span>
+      {props.pennies
+        ? <span>{prefix} {props.allocated.toFixed(props.type==='$' ? 2:1)}</span>
         : <span>{prefix} {props.allocated.toFixed(0)}</span>
       }
     </span>

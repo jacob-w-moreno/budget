@@ -27,7 +27,18 @@ const Budget = (props) => {
 
         <div className='list'>
           {context.categories && context.categories.length > 0
-              ? context.categories.map(category =>
+              ? context.categories
+              // .filter((a,b) => {
+              //   let types = {
+              //     '!%':4,
+              //     'O':3,
+              //     '$':2,
+              //     '%':1
+              //   }
+              //   console.log('a:',a,'b:',b)
+              //   return ( b-types[a.type] - 1)
+              // })
+              .map(category =>
                 <ListItem
                 penniesFN={()=>togglePennies(showPennies ? false : true)}
                 pennies={showPennies}

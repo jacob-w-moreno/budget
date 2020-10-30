@@ -93,9 +93,13 @@ button{
       @include row(space-between);
       font-size: 12px;
       span{
-        width: 33%;
+        // width: 33%;
       }
     }
+      .white-bar__small{
+        width: 24.5%;
+        // border: 1px solid #ccc;
+      }
       .middle{
         text-align: center;
       }

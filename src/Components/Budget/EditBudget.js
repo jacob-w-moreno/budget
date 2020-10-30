@@ -21,24 +21,26 @@ const BudgetEdit = (props) => {
 // === === === JSX START === === ===
 
   const whiteBar = <div className='white-bar'>
-    <span>ALLOCATED</span>
-    <span className='middle'>NAME</span>
-    <span className='right'>BALANCE</span>
+    <span className='white-bar__small'>ALLOCATED</span>
+    <span className='white-bar__small big'>NAME</span>
+    <span className='white-bar__small right small'>NEW</span>
+    <span className='white-bar__small right small'>OLD</span>
   </div>
 
-const categoriesDisplay = <div className='list'>
-  {context.tempCat.map((category, index) =>
-    <EditItem
-    name={category.name}
-    editName={context.editName}
-    type={category.type}
-    allocated={category.allocated}
-    editAllocation={context.editAllocation}
-    balance={category.balance}
-    id={category.id}
-    key={category.id}
-    index={index}/>
-  )}
+  const categoriesDisplay = <div className='list'>
+    {context.tempCat.map((category, index) =>
+      <EditItem
+      name={category.name}
+      editName={context.editName}
+      type={category.type}
+      allocated={category.allocated}
+      editAllocation={context.editAllocation}
+      balance={category.balance}
+      oldBalance={context.categories[index].balance}
+      id={category.id}
+      key={category.id}
+      index={index}/>
+    )}
   </div>
 
 // === === === JSX END === === ===

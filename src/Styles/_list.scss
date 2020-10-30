@@ -22,10 +22,19 @@
 .list-item__display{
   width: 24.5%;
   overflow: scroll;
-  // border: 1px solid $lightgray;
+  // border: 1px solid #ccc;
 }
 .main{
   width: 50%
+}
+.medium {
+  width: 21%;
+}
+.small {
+  width: 18%;
+}
+.big {
+  width: 40%;
 }
 
 .green{
