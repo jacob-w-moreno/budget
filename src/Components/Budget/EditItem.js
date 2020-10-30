@@ -40,11 +40,10 @@ const BudgetListEdit = (props) => {
     : '% '}
     precision={props.type==='$'
     ? 2
-    : 0}
-    // precision={2}
+    : 1}
     value={props.allocated}
     onChangeEvent={(event, maskedValue, floatValue) => {
-      props.editAllocation(props.id, +floatValue);
+      props.editAllocation(props.id, +floatValue.toFixed(2));
     }}/>
     {nameInput}
     <div className='list-item__display'>
