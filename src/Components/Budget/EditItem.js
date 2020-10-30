@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import CurrencyInput from 'react-currency-input';
 
@@ -11,27 +11,22 @@ const BudgetListEdit = (props) => {
     value={props.name}
     onChange={(e)=>{props.editName(props.id, e.target.value)}}/>
 
-    let prefix, className;
+    let className;
 
     switch(props.type) {
       case ('!%'):
-        prefix='%';
         className='priority-percentage';
         break;
       case ('$'):
-        prefix='$';
         className='dollar';
         break;
       case ('O'):
-        prefix='%';
         className='overflow';
         break;
       case ('%'):
-        prefix='%';
         className='percentage';
         break;
       default:
-        prefix='$';
         className='dollar';
     }
 

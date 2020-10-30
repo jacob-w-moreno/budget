@@ -39,7 +39,8 @@ const Transaction = (props) => {
     axios
       .put('/api/total', {type, amount})
       .then((res) => {
-        context.setTotal(res.data.total);
+        context.setTotal(+res.data.total.toFixed(2));
+        context.addTransaction(+res.data.total.toFixed(2));
         props.history.push('/');
       })
       .catch(error => console.log(error))

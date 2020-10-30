@@ -85,6 +85,11 @@ function App(props) {
 
   // === AXIOS END ===
 
+  const addTransaction = async(newTotal) => {
+    const newCategories = [...tempCat];
+    distributePriorityPercentage(newCategories, newTotal);
+  }
+
   const editAllocation = async(id, value) => {
     const index = tempCat.findIndex(category => category.id === id);
 
@@ -94,11 +99,12 @@ function App(props) {
     const newCategories = [...tempCat];
     newCategories[index] = newCategory;
 
-    distributePriorityPercentage(newCategories);
+    distributePriorityPercentage(newCategories, total);
   }
 
-  const distributePriorityPercentage = (newCategories) => {
-    let newTotal = total;
+  const distributePriorityPercentage = (newCategories, newTotal) => {
+
+    console.log('1 receives:', newTotal);
 
     newCategories
     .filter(category => category.type ==='!%')
@@ -110,10 +116,12 @@ function App(props) {
       newTotal = +(newTotal - newCategory.balance).toFixed(2);
     })
 
+    console.log('1 gives:', newTotal);
     distributeDollar(newCategories, newTotal);
   }
 
   const distributeDollar = (newCategories, newTotal) => {
+    console.log('2 receives:', newTotal);
     newCategories
     .filter(category => category.type === '$')
     .forEach(category => {
@@ -123,20 +131,20 @@ function App(props) {
       let difference = newCategory.allocated - newCategory.balance;
       if (difference < newTotal) {
         newCategory.balance = newCategory.allocated;
-        newTotal -= difference;
-        console.log(`${newTotal} remaining`)
+        newTotal = +(newTotal - difference).toFixed(2);
       }
       else {
         newCategory.balance += newTotal;
         newTotal = 0;
       }
-
       newCategories[index] = newCategory;
     })
+    console.log('2 gives:', newTotal);
     distributePercent(newCategories, newTotal);
   }
 
   const distributePercent = (newCategories, newTotal) => {
+    console.log('3 receives:', newTotal);
     newCategories
     .filter(category => category.type === '%' || category.type === 'O')
     .forEach(category => {
@@ -146,10 +154,11 @@ function App(props) {
       newCategories[index] = newCategory;
     });
 
+    console.log('3 gives:', newTotal);
     fixRoundingErrors(newCategories, newTotal);
   }
 
-  const fixRoundingErrors = (newCategories, newTotal) => {
+  const fixRoundingErrors = (newCategories) => {
     let fullPercent = newCategories
     .filter(category => category.type === '%' || category.type === 'O')
     .reduce((sum, current) => sum += current.allocated, 0);
@@ -197,7 +206,8 @@ function App(props) {
         tempCat,
         editAllocation, editName,
         percentageAllocated,
-        saveEdits
+        saveEdits,
+        addTransaction
       }}>
 
         <Dashboard
