@@ -16,7 +16,7 @@ const ListItem = (props) => {
   return(<div className={'list-item ' + className}>
 
     <span className='list-item__display'>
-      {props.date}
+      {+props.amount.toFixed(2)}
     </span>
 
     <span className='list-item__display middle'>
@@ -24,7 +24,7 @@ const ListItem = (props) => {
     </span>
 
     <span className='list-item__display right'>
-      {+props.amount.toFixed(2)}
+      {props.date}
     </span>
 
   </div>)

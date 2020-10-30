@@ -12,9 +12,9 @@ const History = (props) => {
     <div id='everything-but-the-header'>
       <div id='top-stuff'>
         <div className='white-bar'>
-          <span>DATE</span>
+          <span>AMOUNT</span>
           <span className='middle'>DESCRIPTION</span>
-          <span className='right'>AMOUNT</span>
+          <span className='right'>DATE</span>
         </div>
 
       {context.transactions && context.transactions.length > 0

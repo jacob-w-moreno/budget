@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import CurrencyInput from 'react-currency-input';
 
 import Header from '../Header';
 import Context from '../../Context/Context';
@@ -96,11 +97,18 @@ const Transaction = (props) => {
         <div id='trans-info-container'>
           <div className='trans__info'>
             <span>AMOUNT</span>
-            $<input
+            <CurrencyInput
+            prefix='$ '
+            precision={2}
+            value={amount}
+            onChangeEvent={(event, maskedValue, floatValue) => {
+              setAmount(+floatValue);
+            }}/>
+            {/* $<input
             className='transaction-input'
             value={amount}
             type='number'
-            onChange={event=>setAmount(event.target.value)}/>
+            onChange={event=>setAmount(event.target.value)}/> */}
           </div>
 
           <div className='trans__info'>

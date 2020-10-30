@@ -7,10 +7,10 @@ let categories = [
     id: 0
   },
   {
-    name: 'Gas',
+    name: 'Loan',
     type: '$',
-    allocated: 45,
-    balance: 45,
+    allocated: 337.43,
+    balance: 337.43,
     id: 1
   },
   {
@@ -21,11 +21,46 @@ let categories = [
     id: 2
   },
   {
-    name: 'Entertainment',
+    name: 'Creative / Recreational',
     type: '%',
     allocated: 90,
     balance: 100,
     id: 3
+  },
+  {
+    name: 'Emotional / Mental',
+    type: '%',
+    allocated: 90,
+    balance: 100,
+    id: 4
+  },
+  {
+    name: 'Environmental',
+    type: '%',
+    allocated: 90,
+    balance: 100,
+    id: 5
+  },
+  {
+    name: 'Financial / Occupational',
+    type: '%',
+    allocated: 90,
+    balance: 100,
+    id: 6
+  },
+  {
+    name: 'Intellectual / Physical',
+    type: '%',
+    allocated: 90,
+    balance: 100,
+    id: 7
+  },
+  {
+    name: 'Social / Spiritual',
+    type: '%',
+    allocated: 90,
+    balance: 100,
+    id: 8
   }
 ]
 

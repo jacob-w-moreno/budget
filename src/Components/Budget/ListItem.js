@@ -35,7 +35,7 @@ const BudgetList = (props) => {
       }
     </span>
 
-    <span className='list-item__display middle'>
+    <span className='list-item__display middle main'>
       {props.name}
     </span>
 

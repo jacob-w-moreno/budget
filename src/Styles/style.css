@@ -183,6 +183,15 @@ a {
   width: 100px;
 }
 
+.input {
+  background: none;
+  border: none;
+  color: white;
+  height: 20px;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 #header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -213,7 +222,7 @@ a {
 }
 
 .list {
-  max-height: calc(100vh - 350px);
+  max-height: calc(100vh - 325px);
   overflow: scroll;
   padding: 0px 20px;
 }
@@ -250,12 +259,12 @@ a {
 }
 
 .list-item__display {
-  width: 33%;
+  width: 24.5%;
   overflow: scroll;
 }
 
-.list-item__display:hover {
-  cursor: pointer;
+.main {
+  width: 50%;
 }
 
 .income {
@@ -377,7 +386,8 @@ a {
 .trans-modal {
   position: fixed;
   z-index: 500;
-  background-color: #8a8a8a;
+  background-color: white;
+  color: #4d4d4d;
   width: 80%;
   border-radius: 8px;
   -webkit-box-shadow: 1px 1px 1px black;
@@ -397,6 +407,7 @@ a {
   text-align: center;
   padding: 8px;
   background: #fe8626;
+  color: white;
 }
 
 .trans-modal__exit {
@@ -423,7 +434,7 @@ a {
           justify-content: space-between;
   margin: 0 8px;
   padding: 8px 0;
-  border-bottom: 2px solid #4d4d4d;
+  border-bottom: 2px solid #ccc;
 }
 
 .trans-modal__category:hover {

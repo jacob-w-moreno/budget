@@ -65,11 +65,8 @@ function App() {
 
   // === AXIOS END ===
 
-  const editAllocation = async(index, value) => {
-    const newCategories = [...categories];
-    newCategories[index]["allocated"] = value;
-    // distributeDollar();
-    setCategories(newCategories);
+  const distributePriorityPercentage = async(index, value) => {
+
   }
 
   const editName = async(id, value) => {
@@ -96,7 +93,6 @@ function App() {
         total, setTotal,
         transactions, setTransactions,
         categories, setCategories,
-        editAllocation,
         editName
       }}>
 

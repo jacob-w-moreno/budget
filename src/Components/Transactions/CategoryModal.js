@@ -7,7 +7,6 @@ import Context from '../../Context/Context';
 const Modal = (props) => {
 
 const context = useContext(Context);
-console.log('cont:', context.categories);
 
   return ( <Aux>
     <Backdrop
@@ -31,11 +30,12 @@ console.log('cont:', context.categories);
 
       {context.categories.map((category)=>
       <div className='trans-modal__category'
+      key={category.id}
       onClick={()=>{
         props.chooseCategory(category.id);
         props.close();
         }}>
-        <span>{category.name.toUpperCase()}</span>
+        <span>{category.name}</span>
         <span>{category.balance}</span>
       </div>
       )}

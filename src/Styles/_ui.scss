@@ -1,7 +1,8 @@
 .trans-modal {
   position: fixed;
   z-index: 500;
-  background-color: $lightgray;
+  background-color: white;
+  color: $darkgray;
   width: 80%;
   border-radius: 8px;
   box-shadow: 1px 1px 1px black;
@@ -19,6 +20,7 @@
   text-align: center;
   padding: 8px;
   background: $orange;
+  color: white;
 }
 
 .trans-modal__exit {
@@ -40,7 +42,7 @@
   justify-content: space-between;
   margin: 0 8px;
   padding: 8px 0;
-  border-bottom: 2px solid $darkgray;
+  border-bottom: 2px solid #ccc;
   &:hover{ cursor: pointer }
   &:last-of-type{ border: none; }
 }

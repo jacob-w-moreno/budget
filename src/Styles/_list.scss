@@ -1,5 +1,5 @@
 .list{
-  max-height: calc(100vh - 350px);
+  max-height: calc(100vh - 325px);
   overflow: scroll;
   padding: 0px 20px;
 }
@@ -21,11 +21,12 @@
   }
 
 .list-item__display{
-  width: 33%;
+  width: 24.5%;
   overflow: scroll;
-  &:hover{
-    cursor: pointer;
-  }
+  // border: 1px solid $lightgray;
+}
+.main{
+  width: 50%
 }
 
 .income{
