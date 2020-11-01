@@ -15,6 +15,7 @@ module.exports = {
   getTransactions: (req, res) => {
     res.status(200).send(transactions);
   },
+  
   addTransaction: (req, res) => {
     let {type, amount, description, category_id, date} = req.body;
     if (type==="+") category_id = null;

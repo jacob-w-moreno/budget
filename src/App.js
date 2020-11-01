@@ -75,8 +75,16 @@ function App(props) {
     .catch(error => console.log(error));
   }
 
-  const saveEdits = () => { axios
-    .put('/api/categories', {tempCat})
+  const saveNewBalance = () => { axios
+    .put('/api/categories/new-balance', {tempCat})
+    .then(response => {
+      setCategories(response.data);
+    })
+    .catch(error => console.log(error));
+  }
+
+  const saveOldBalance = () => { axios
+    .put('/api/categories/old-balance', {tempCat, categories})
     .then(response => {
       setCategories(response.data);
     })
@@ -203,10 +211,10 @@ function App(props) {
         total, setTotal,
         transactions, setTransactions,
         categories, setCategories,
-        tempCat,
+        tempCat, setTempCat,
         editAllocation, editName,
         percentageAllocated,
-        saveEdits,
+        saveNewBalance, saveOldBalance,
         addTransaction
       }}>
 

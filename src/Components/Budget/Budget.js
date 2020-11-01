@@ -20,9 +20,9 @@ const Budget = (props) => {
       <div id='top-stuff'>
 
         <div className='white-bar'>
-          <span>ALLOCATED</span>
-          <span className='middle'>NAME</span>
-          <span className='right'>BALANCE</span>
+          <span className='white-bar__small'>ALLOCATED</span>
+          <span className=' white-bar__small middle'>NAME</span>
+          <span className=' white-bar__small right'>BALANCE</span>
         </div>
 
         <div className='list'>

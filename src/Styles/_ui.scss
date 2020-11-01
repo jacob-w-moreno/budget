@@ -4,11 +4,12 @@
   background-color: white;
   color: $darkgray;
   width: 80%;
+  max-height: 80%;
+  overflow: scroll;
   border-radius: 8px;
   box-shadow: 1px 1px 1px black;
-  // padding: 16px;
   left: 10%;
-  top: 30%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
@@ -42,6 +43,7 @@
   justify-content: space-between;
   margin: 0 8px;
   padding: 8px 0;
+  overflow: scroll;
   border-bottom: 2px solid #ccc;
   &:hover{ cursor: pointer }
   &:last-of-type{ border: none; }

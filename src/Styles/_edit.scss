@@ -5,6 +5,12 @@
   width: 100px;
 }
 
+.edit__buttons-container {
+  width: 90%;
+  margin-top: 16px;
+  display: flex;
+}
+
 .input{
   background: none;
   border: none;
@@ -12,4 +18,10 @@
   height: 20px;
   font-size: inherit;
   font-family: inherit;
+}
+
+.edit__add-category{
+  background: gray;
+  margin: 0;
+  border-radius: 0;
 }

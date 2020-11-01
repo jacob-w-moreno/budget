@@ -31,19 +31,25 @@ const Transaction = (props) => {
 
   const addTransaction = () => {
     axios
-      .post('/api/transactions', {type, amount, description, category_id, date})
-      .then((res) => {
-        context.setTransactions(res.data);
-      })
-      .catch(error => console.log(error));
-    axios
       .put('/api/total', {type, amount})
       .then((res) => {
         context.setTotal(+res.data.total.toFixed(2));
         context.addTransaction(+res.data.total.toFixed(2));
+      })
+      .catch(error => console.log(error));
+    axios
+      .put('/api/category', {amount, category_id})
+      .then((res) => {
+        context.setCategories(res.data);
+      })
+      .catch(error => console.log(error));
+    axios
+      .post('/api/transactions', {type, amount, description, category_id, date})
+      .then((res) => {
+        context.setTransactions(res.data);
         props.history.push('/');
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   }
 
   // === === FUNCTIONS END === ===

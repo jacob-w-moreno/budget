@@ -10,7 +10,8 @@ app.use(express.json());
 // === === AXIOS START === ===
 
 app.get('/api/categories', catCtrl.getCategories);
-app.put('/api/categories', catCtrl.putCategories);
+app.put('/api/categories/new-balance', catCtrl.saveNewBalance);
+app.put('/api/categories/old-balance', catCtrl.saveOldBalance);
 
 app.get('/api/transactions', transCtrl.getTransactions);
 app.post('/api/transactions', transCtrl.addTransaction);
