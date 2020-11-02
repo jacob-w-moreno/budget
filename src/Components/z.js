@@ -27,7 +27,7 @@ const BudgetEdit = (props) => {
   </div>
 
 const categoriesDisplay = <div className='list'>
-  {context.tempCat.map((category, index) =>
+  {context.categories.map((category, index) =>
     <EditItem
     name={category.name}
     editName={context.editName}

@@ -26,23 +26,19 @@ function App(props) {
   let edit = false;
   if(props.history.location.pathname === '/edit-budget') edit = true;
 
-  const display = edit
-    ? tempCat
-    : categories;
-
-  const dollarTotal = display
+  const dollarTotal = categories
   .filter(category => category.type==='$')
   .reduce((total, current) => total + current['balance'],0);
 
-  const dollarAllocated = display
+  const dollarAllocated = categories
   .filter(category => category.type==='$')
   .reduce((total, current) => total + current['allocated'],0);
 
-  const percentageTotal = display
+  const percentageTotal = categories
   .filter(category => category.type==='%' || category.type==='O')
   .reduce((total, current) => total + current['balance'],0);
 
-  const percentageAllocated = display
+  const percentageAllocated = categories
   .filter(category => category.type==='%' || category.type==='O')
   .reduce((total, current) => total + current['allocated'],0);
 
@@ -76,7 +72,7 @@ function App(props) {
   }
 
   const saveNewBalance = () => { axios
-    .put('/api/categories/new-balance', {tempCat})
+    .put('/api/categories/new-balance', {categories})
     .then(response => {
       setCategories(response.data);
     })
@@ -84,7 +80,7 @@ function App(props) {
   }
 
   const saveOldBalance = () => { axios
-    .put('/api/categories/old-balance', {tempCat, categories})
+    .put('/api/categories/old-balance', {categories})
     .then(response => {
       setCategories(response.data);
     })
@@ -94,17 +90,17 @@ function App(props) {
   // === AXIOS END ===
 
   const addTransaction = async(newTotal) => {
-    const newCategories = [...tempCat];
+    const newCategories = [...categories];
     distributePriorityPercentage(newCategories, newTotal);
   }
 
   const editAllocation = async(id, value) => {
-    const index = tempCat.findIndex(category => category.id === id);
+    const index = categories.findIndex(category => category.id === id);
 
-    const newCategory = {...tempCat[index]};
+    const newCategory = {...categories[index]};
     newCategory.allocated = value;
 
-    const newCategories = [...tempCat];
+    const newCategories = [...categories];
     newCategories[index] = newCategory;
 
     distributePriorityPercentage(newCategories, total);
@@ -184,22 +180,23 @@ function App(props) {
 
     }
 
-    setTempCat(newCategories);
+    setCategories(newCategories);
   }
 
   const editName = async(id, value) => {
-    const index = tempCat.findIndex(category => {
+    const index = categories.findIndex(category => {
       return category.id === id
     })
 
     const category = {
-      ...tempCat[index]
+      ...categories[index]
     };
+    console.log('category:', category);
     category.name = value;
 
-    const newCategories = [...tempCat];
+    const newCategories = [...categories];
     newCategories[id] = category;
-    setTempCat(newCategories);
+    setCategories(newCategories);
   }
 
 // === === FUNCTIONS END === ===
@@ -211,7 +208,7 @@ function App(props) {
         total, setTotal,
         transactions, setTransactions,
         categories, setCategories,
-        tempCat, setTempCat,
+        tempCat,
         editAllocation, editName,
         percentageAllocated,
         saveNewBalance, saveOldBalance,

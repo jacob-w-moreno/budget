@@ -84,17 +84,17 @@ module.exports = {
   },
 
   saveNewBalance: (req, res) => {
-    const {tempCat} = req.body;
-    categories = tempCat;
+    const {categories} = req.body;
+    categories = categories;
     res.status(200).send(categories);
   },
 
   saveOldBalance: (req, res) => {
-    let {tempCat, categories} = req.body;
-    tempCat.forEach((category, index) => {
+    let {categories} = req.body;
+    categories.forEach((category, index) => {
       category.balance = categories[index].balance;
     })
-    categories = tempCat;
+    categories = categories;
     res.status(200).send(categories);
   },
 

@@ -13,7 +13,9 @@ const Budget = (props) => {
 
   return(<div id='obligatory-div'>
 
-    <Header title="BUDGET"/>
+    <Header title="BUDGET"
+    leftClick={()=>props.history.push('/history')}
+    rightClick={()=>props.history.push('/transaction')}/>
 
     <div id='everything-but-the-header'>
 

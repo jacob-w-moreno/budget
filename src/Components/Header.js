@@ -5,17 +5,15 @@ const Header = (props) => {
   return(
     <div id='header'>
 
-      <Link to='/history'>
-        <div className='header-icon'/>
-      </Link>
+      <div className='header-icon'
+      onClick={props.leftClick}/>
 
       <Link to='/'>
         <span>{props.title}</span>
       </Link>
 
-      <Link to='transaction'>
-        <div className='header-icon'/>
-      </Link>
+      <div className='header-icon'
+      onClick={props.rightClick}/>
 
     </div>
   )

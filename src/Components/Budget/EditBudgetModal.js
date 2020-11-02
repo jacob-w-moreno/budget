@@ -13,11 +13,13 @@ const EditBudgetModal = (props => {
       name: 'NEW CATEGORY',
       type: type,
       allocated: 0,
-      balance: 0
+      balance: 0,
+      id: context.categories.length
     }
-    let newTempCat = [...context.tempCat];
+    let newTempCat = [...context.categories];
     newTempCat.push(newCategory);
-    context.setTempCat(newTempCat);
+    console.log(newTempCat);
+    context.setCategories(newTempCat);
   }
 
   return (<Aux>
@@ -40,17 +42,26 @@ const EditBudgetModal = (props => {
     </div>
 
     <button className='edit__add-category'
-    onClick={()=>addCategory('!%')}>
+    onClick={()=>{
+      addCategory('!%');
+      props.close();
+    }}>
       PRIORITY PERCENTAGE
     </button>
 
     <button className='edit__add-category'
-    onClick={()=>addCategory('$')}>
+    onClick={()=>{
+      addCategory('$');
+      props.close();
+    }}>
       DOLLAR
     </button>
 
     <button className='edit__add-category'
-    onClick={()=>addCategory('%')}>
+    onClick={()=>{
+      addCategory('%');
+      props.close();
+    }}>
       PERCENTAGE
     </button>
 

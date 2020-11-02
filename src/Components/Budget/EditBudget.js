@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import Context from '../../Context/Context';
 
@@ -10,7 +10,10 @@ const BudgetEdit = (props) => {
 
   const context = useContext(Context);
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  console.log('cat:', context.categories);
+  console.log('tempCat:', context.tempCat);
 
 // === === === FUNCTIONS START === === ===
 
@@ -36,32 +39,32 @@ const BudgetEdit = (props) => {
   </div>
 
   const categoriesDisplay = <div className='list'>
-    {context.tempCat
-    .sort((a,b) => {
-      if (a.type < b.type) return -1;
-      if (a.type > b.type) return 1;
-      return 0;
-    })
-    .map((category, index) =>
-      <EditItem
+    {context.categories
+    .map((category, index) =>{
+      context.tempCat && context.tempCat.length !== 0
+      ? console.log('balance:', context.tempCat[index].balance)
+      : console.log('no');
+      return (<EditItem
       name={category.name}
       editName={context.editName}
       type={category.type}
       allocated={category.allocated}
       editAllocation={context.editAllocation}
       balance={category.balance}
-      oldBalance={context.categories[index] ? context.categories[index].balance : 0}
+      oldBalance={context.tempCat && context.tempCat.length !== 0
+        ? context.tempCat[index].balance
+        : category.balance}
       id={category.id}
       key={category.id}
-      index={index}/>
-    )}
+      index={index}/>)
+})}
   </div>
 
 // === === === JSX END === === ===
 
   return (<div id='obligatory-div'>
     <Header title="EDIT"
-      rightButton={()=>setShowModal(showModal ? false : true)}/>
+      rightClick={()=>setShowModal(showModal ? false : true)}/>
     <Modal
     show={showModal}
     close={()=>setShowModal(false)}/>

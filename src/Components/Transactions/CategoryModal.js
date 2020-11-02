@@ -13,7 +13,6 @@ const context = useContext(Context);
     show={props.show}
     close={props.close}/>
 
-
     <div className='trans-modal'
     style={{
       transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
@@ -34,7 +33,7 @@ const context = useContext(Context);
       onClick={()=>{
         props.chooseCategory(category.id);
         props.close();
-        }}>
+      }}>
         <span>{category.name}</span>
         <span>{category.balance}</span>
       </div>
