@@ -77,19 +77,19 @@ const BudgetEdit = (props) => {
         <button
         className={context.percentageAllocated!==100?'transparent':null}
         disabled={context.percentageAllocated!==100}
-        onClick={()=>{saveNewBalance()}}>
+        onClick={()=>saveNewBalance()}>
           SAVE NEW
         </button>
         <div className='button__spacer'/>
         <button
         className={context.percentageAllocated!==100?'transparent':null}
         disabled={context.percentageAllocated!==100}
-        onClick={()=>{saveOldBalance()}}>
+        onClick={()=>saveOldBalance()}>
           SAVE OLD
         </button>
       </div>
       <Link to='/'>
-        <button style={{width: '90vw'}}>CANCEL</button>
+        <button style={{width: '90vw'}} onClick={()=>saveOldBalance()}>CANCEL</button>
       </Link>
     </div>
   </div>)
